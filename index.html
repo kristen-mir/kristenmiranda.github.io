@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kristen Miranda – Digital Marketing</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --baby:#fce4ec;--baby-mid:#f8bbd0;--hot:#e91e8c;--hot-dark:#c2185b;
+    --text:#1a1a1a;--muted:#777;--border:#f0c8d8;--bg:#fff;--surface:#fff9fb;
+  }
+  body{font-family:'Georgia',serif;color:var(--text);background:var(--bg);font-size:16px;overflow-x:hidden;}
+
+  nav{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 3rem;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(255,255,255,0.96);z-index:100;}
+  .logo{font-family:'Georgia',serif;font-size:17px;letter-spacing:0.08em;color:var(--hot);}
+  .nav-links{display:flex;gap:1.5rem;list-style:none;}
+  .nav-links a{text-decoration:none;font-family:sans-serif;font-size:12px;letter-spacing:0.07em;color:var(--muted);text-transform:uppercase;transition:color 0.2s;position:relative;}
+  .nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--hot);transition:width 0.3s ease;}
+  .nav-links a:hover{color:var(--hot);}
+  .nav-links a:hover::after{width:100%;}
+
+  .hero{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;padding:6rem 3rem;max-width:1100px;margin:0 auto;position:relative;}
+  .hero-tag{font-family:sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--hot);margin-bottom:1rem;}
+  .hero h1{font-size:50px;font-weight:normal;line-height:1.12;margin-bottom:1.2rem;}
+  .hero h1 em{color:var(--hot);font-style:italic;}
+  .hero-sub{font-family:sans-serif;font-size:14px;line-height:1.85;color:var(--muted);margin-bottom:0.6rem;max-width:420px;}
+  .hero-detail{font-family:sans-serif;font-size:13px;color:var(--hot-dark);margin-bottom:2rem;}
+  .btns{display:flex;gap:1rem;flex-wrap:wrap;}
+  .btn-p{background:var(--hot);color:#fff;border:none;padding:0.75rem 1.8rem;font-family:sans-serif;font-size:12px;letter-spacing:0.07em;text-transform:uppercase;cursor:pointer;transition:background 0.2s;position:relative;overflow:hidden;}
+  .btn-p::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,0.15);transform:translateX(-100%);transition:transform 0.3s ease;}
+  .btn-p:hover{background:var(--hot-dark);}
+  .btn-p:hover::after{transform:translateX(0);}
+  .btn-o{background:transparent;color:var(--hot);border:1px solid var(--hot);padding:0.75rem 1.8rem;font-family:sans-serif;font-size:12px;letter-spacing:0.07em;text-transform:uppercase;cursor:pointer;transition:all 0.2s;}
+  .btn-o:hover{background:var(--baby);}
+
+  @keyframes twinkle{0%,100%{opacity:0.15;transform:scale(0.7) rotate(0deg);}50%{opacity:1;transform:scale(1.3) rotate(20deg);}}
+  @keyframes floatUp{0%{transform:translateY(0) rotate(0deg);opacity:0.8;}100%{transform:translateY(-110vh) rotate(540deg);opacity:0;}}
+  .fixed-star{position:fixed;pointer-events:none;z-index:0;animation:twinkle ease-in-out infinite;}
+  .float-star{position:fixed;pointer-events:none;z-index:0;animation:floatUp linear infinite;}
+
+  .phone-wrap{display:flex;justify-content:center;}
+  .phone{width:210px;height:430px;border:2px solid var(--border);border-radius:32px;background:var(--surface);padding:12px;overflow:hidden;animation:phoneFloat 4s ease-in-out infinite;}
+  @keyframes phoneFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+  .notch{width:55px;height:9px;background:var(--border);border-radius:5px;margin:4px auto 10px;}
+  .ig-top{background:var(--baby);border-radius:14px;height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;margin-bottom:8px;}
+  .ig-av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--hot),#ffb3c6);margin-bottom:6px;}
+  .ig-top p{font-family:sans-serif;font-size:10px;color:var(--hot-dark);font-weight:600;}
+  .ig-top span{font-family:sans-serif;font-size:9px;color:var(--muted);margin-top:2px;}
+  .ig-mini{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;}
+  .ig-mini div{height:58px;border-radius:6px;}
+  .c1{background:#fce4ec;}.c2{background:#f3e5f5;}.c3{background:#e8f5e9;}
+  .c4{background:#f8bbd0;}.c5{background:#fff3e0;}.c6{background:#e1f5fe;}
+  .ig-u{font-family:sans-serif;font-size:10px;color:var(--muted);text-align:center;margin-top:7px;}
+
+  section{padding:5rem 3rem;max-width:1100px;margin:0 auto;position:relative;}
+  .sec-label{font-family:sans-serif;font-size:11px;letter-spacing:0.13em;text-transform:uppercase;color:var(--hot);margin-bottom:1.2rem;}
+  .sec-title{font-size:34px;font-weight:normal;margin-bottom:1.5rem;line-height:1.2;}
+
+  .about-grid{display:grid;grid-template-columns:220px 1fr;gap:4rem;}
+  .stat{border-left:2px solid var(--baby-mid);padding-left:1.1rem;margin-bottom:1.8rem;transition:border-color 0.3s;}
+  .stat:hover{border-color:var(--hot);}
+  .stat .n{font-size:32px;color:var(--hot);}
+  .stat .d{font-family:sans-serif;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;}
+  .about-grid p{font-family:sans-serif;font-size:14px;line-height:1.85;color:var(--muted);margin-bottom:1rem;}
+  .tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.5rem;}
+  .tag{background:var(--baby);color:var(--hot-dark);font-family:sans-serif;font-size:11px;padding:5px 12px;transition:background 0.2s,transform 0.2s;cursor:default;}
+  .tag:hover{background:var(--baby-mid);transform:scale(1.05);}
+
+  .cert-strip{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2.5rem 3rem;}
+  .cert-inner{max-width:1100px;margin:0 auto;}
+  .cert-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-top:1.5rem;}
+  .cert-card{border:1px solid var(--border);padding:1.1rem;text-align:center;background:var(--bg);transition:transform 0.25s,border-color 0.25s;}
+  .cert-card:hover{transform:translateY(-4px);border-color:var(--hot);}
+  .cert-icon{width:28px;height:28px;border-radius:50%;background:var(--baby);margin:0 auto 0.6rem;display:flex;align-items:center;justify-content:center;}
+  .cert-name{font-family:sans-serif;font-size:11px;color:var(--text);line-height:1.4;margin-bottom:0.3rem;}
+  .cert-org{font-family:sans-serif;font-size:10px;color:var(--hot);}
+  .cert-exp{font-family:sans-serif;font-size:9px;color:var(--muted);margin-top:3px;}
+
+  .project{border:1px solid var(--border);margin-bottom:1.5rem;overflow:hidden;transition:transform 0.25s ease,box-shadow 0.25s ease;}
+  .project:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(233,30,140,0.08);}
+  .project-header{display:grid;grid-template-columns:1fr auto;align-items:start;gap:1rem;padding:2rem 2rem 1.5rem;cursor:pointer;transition:background 0.2s;}
+  .project-header:hover{background:var(--surface);}
+  .p-tag{font-family:sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--hot);margin-bottom:0.5rem;}
+  .p-title{font-size:21px;font-weight:normal;line-height:1.25;margin-bottom:0.7rem;}
+  .p-summary{font-family:sans-serif;font-size:13px;color:var(--muted);line-height:1.75;max-width:680px;}
+  .toggle-btn{font-family:sans-serif;font-size:11px;color:var(--hot);border:1px solid var(--border);background:transparent;padding:6px 14px;cursor:pointer;white-space:nowrap;margin-top:4px;transition:all 0.2s;}
+  .toggle-btn:hover{background:var(--baby);}
+  .project-detail{display:none;padding:0 2rem 2rem;border-top:1px solid var(--border);}
+  .project-detail.open{display:block;}
+  .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:1.5rem;}
+  .detail-col h4{font-family:sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--hot);margin-bottom:0.75rem;}
+  .detail-col p{font-family:sans-serif;font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:0.75rem;}
+  .detail-col ul{font-family:sans-serif;font-size:13px;color:var(--muted);line-height:1.8;padding-left:1.2rem;}
+  .kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin-top:0.5rem;}
+  .kpi{background:var(--baby);padding:0.85rem;text-align:center;}
+  .kpi .kn{font-size:20px;color:var(--hot);}
+  .kpi .kd{font-family:sans-serif;font-size:10px;color:var(--hot-dark);margin-top:2px;}
+  .chips{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:1.25rem;}
+  .chip{background:var(--baby);font-family:sans-serif;font-size:10px;color:var(--hot-dark);padding:3px 9px;}
+
+  /* CAMPAIGN TABS */
+  .camp-tabs{display:flex;gap:0;border-bottom:1px solid var(--border);margin-bottom:2.5rem;}
+  .camp-tab{font-family:sans-serif;font-size:12px;letter-spacing:0.07em;text-transform:uppercase;padding:0.85rem 2rem;cursor:pointer;border:none;background:transparent;color:var(--muted);border-bottom:2px solid transparent;transition:all 0.2s;margin-bottom:-1px;}
+  .camp-tab.active{color:var(--hot);border-bottom:2px solid var(--hot);}
+  .camp-tab:hover{color:var(--hot);}
+  .camp-panel{display:none;}
+  .camp-panel.active{display:block;}
+
+  .campaign-kv{background:#e91e8c;padding:2.5rem;margin-bottom:2.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;}
+  .kv-left h2{font-size:26px;color:#fff;font-weight:normal;}
+  .kv-left p{font-family:sans-serif;font-size:13px;color:rgba(255,255,255,0.85);margin-top:0.5rem;max-width:460px;line-height:1.7;}
+  .kv-badges{display:flex;gap:1rem;flex-wrap:wrap;}
+  .kv-badge{background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.3);padding:0.7rem 1.1rem;text-align:center;}
+  .kv-badge .b1{font-family:sans-serif;font-size:9px;color:rgba(255,255,255,0.8);text-transform:uppercase;letter-spacing:0.08em;}
+  .kv-badge .b2{font-size:20px;color:#fff;}
+  .campaign-cols{display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
+  .c-block h4{font-family:sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--hot);margin-bottom:0.9rem;}
+  .metric-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.75rem;margin-bottom:1.5rem;}
+  .metric{border:1px solid var(--border);padding:1rem;}
+  .metric .mn{font-size:20px;}
+  .metric .md{font-family:sans-serif;font-size:11px;color:var(--muted);margin-top:2px;}
+  .funnel-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+  .f-label{font-family:sans-serif;font-size:11px;color:var(--muted);width:90px;text-align:right;}
+  .f-wrap{flex:1;height:30px;background:var(--baby);}
+  .f-bar{height:100%;background:var(--hot);display:flex;align-items:center;padding-left:10px;}
+  .f-bar span{font-family:sans-serif;font-size:11px;color:#fff;font-weight:600;}
+  .new-audience{background:var(--baby);padding:1.4rem;margin-top:1.2rem;}
+  .new-audience h5{font-family:sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--hot);margin-bottom:0.6rem;}
+  .new-audience p{font-family:sans-serif;font-size:13px;color:var(--text);line-height:1.75;}
+  .deliverables{display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem;margin-top:2rem;}
+  .deliv{border:1px solid var(--border);padding:1.1rem;text-align:center;background:var(--bg);}
+  .deliv h5{font-family:sans-serif;font-size:12px;color:var(--text);margin-bottom:0.25rem;}
+  .deliv p{font-family:sans-serif;font-size:11px;color:var(--muted);}
+
+  .ig-section{padding:5rem 3rem;}
+  .ig-wrap{max-width:1100px;margin:0 auto;}
+  .ig-profile-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem;}
+  .ig-profile{display:flex;align-items:center;gap:1.2rem;}
+  .ig-av-big{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--hot),#ffb3c6);flex-shrink:0;}
+  .ig-name{font-size:18px;}
+  .ig-handle{font-family:sans-serif;font-size:12px;color:var(--muted);}
+  .ig-stats{display:flex;gap:2rem;}
+  .ig-stat .n{font-size:18px;}
+  .ig-stat .l{font-family:sans-serif;font-size:11px;color:var(--muted);}
+  .ig-topics{display:flex;gap:0.5rem;margin-bottom:1.5rem;flex-wrap:wrap;}
+  .topic{background:var(--baby);font-family:sans-serif;font-size:11px;color:var(--hot-dark);padding:4px 12px;}
+
+  .contact-wrap{text-align:center;max-width:480px;margin:0 auto;}
+  .contact-wrap p{font-family:sans-serif;font-size:14px;color:var(--muted);line-height:1.85;margin-bottom:2rem;}
+  .contact-links{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;}
+  .clink{font-family:sans-serif;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--hot);text-decoration:none;border-bottom:1px solid var(--baby-mid);padding-bottom:2px;}
+
+  .divider{width:36px;height:1px;background:var(--baby-mid);margin:0 auto 2rem;}
+  footer{text-align:center;padding:2rem;font-family:sans-serif;font-size:11px;color:var(--muted);border-top:1px solid var(--border);}
+
+  .fade-up{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
+  .fade-up.visible{opacity:1;transform:translateY(0);}
+  .stagger-1{transition-delay:0.1s;}.stagger-2{transition-delay:0.2s;}.stagger-3{transition-delay:0.3s;}.stagger-4{transition-delay:0.4s;}.stagger-5{transition-delay:0.5s;}
+
+  @keyframes shimmer{0%{background-position:200% center;}100%{background-position:-200% center;}}
+  .hi-name{background:linear-gradient(90deg,var(--hot),#ff80ab,var(--hot-dark),#ff4081,var(--hot));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear infinite;}
+  .photo-wrap{overflow:hidden;position:relative;}
+  .photo-wrap img{transition:transform 0.6s ease;}
+  .photo-wrap img:hover{transform:scale(1.04);}
+  .stars-wrap{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+</style>
+</head>
+<body>
+
+<div class="stars-wrap" id="stars-bg"></div>
+
+<nav>
+  <div class="logo">Kristen Miranda</div>
+  <ul class="nav-links">
+    <li><a href="#hi">Hi, I'm Kristen</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#campaigns">Campaigns</a></li>
+    <li><a href="#work">Projects</a></li>
+    <li><a href="#ads">Paid Ads</a></li>
+    <li><a href="#instagram">Brand</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <div class="hero-tag">Bryant University · Class of May 2026</div>
+    <h1>Digital <em>Marketing</em> Graduate &amp; Content Creator</h1>
+    <p class="hero-sub">B.S. Business Administration, Digital Marketing concentration. Bilingual strategist with hands-on campaign experience, five industry certifications, and a real-world personal brand in fitness &amp; wellness.</p>
+    <p class="hero-detail">3.64 GPA &nbsp;·&nbsp; Bilingual EN/ES &nbsp;·&nbsp; Based in CT &nbsp;·&nbsp; Open to Relocation</p>
+    <div class="btns">
+      <button class="btn-p" onclick="document.getElementById('campaigns').scrollIntoView({behavior:'smooth'})">View My Work</button>
+      <button class="btn-o" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Let's Connect</button>
+    </div>
+  </div>
+  <div class="phone-wrap">
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="ig-top">
+        <div class="ig-av"></div>
+        <p>@memyselfandkristen</p>
+
+        <span>Fitness · Wellness · Lifestyle</span>
+      </div>
+      <div class="ig-mini">
+        <div class="c1"></div><div class="c2"></div><div class="c3"></div>
+        <div class="c4"></div><div class="c5"></div><div class="c6"></div>
+      </div>
+      <div class="ig-u">TikTok &amp; Instagram Creator · Since 2023</div>
+    </div>
+  </div>
+</div>
+
+<!-- HI I'M KRISTEN -->
+<section id="hi">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;">
+    <div style="position:relative;" class="photo-wrap">
+      <div style="position:absolute;top:-12px;left:-12px;width:100%;height:100%;border:1px solid var(--border);z-index:0;"></div>
+      <img src="https://i.ibb.co/PGc5Lh9H/1-EA11214-A3-DD-47-F3-96-E0-CE3-BFB475214.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;position:relative;z-index:1;" />
+    </div>
+    <div>
+      <div class="sec-label">Nice to meet you</div>
+      <h2 style="font-size:48px;font-weight:normal;margin-bottom:0.5rem;line-height:1.1;">Hi, I'm <span class="hi-name">Kristen.</span></h2>
+      <div style="display:flex;gap:6px;margin-bottom:1.5rem;flex-wrap:wrap;">
+        <span style="font-size:20px;animation:twinkle 2s ease-in-out infinite;display:inline-block;color:var(--hot);">✦</span>
+        <span style="font-size:16px;animation:twinkle 2.5s ease-in-out infinite 0.3s;display:inline-block;color:var(--baby-mid);">✦</span>
+        <span style="font-size:24px;animation:twinkle 1.8s ease-in-out infinite 0.6s;display:inline-block;color:var(--hot);">✦</span>
+        <span style="font-size:14px;animation:twinkle 3s ease-in-out infinite 0.9s;display:inline-block;color:var(--baby-mid);">✦</span>
+        <span style="font-size:20px;animation:twinkle 2.2s ease-in-out infinite 1.2s;display:inline-block;color:var(--hot);">✦</span>
+      </div>
+      <div style="width:36px;height:1px;background:var(--baby-mid);margin-bottom:1.5rem;"></div>
+      <p style="font-family:sans-serif;font-size:14px;line-height:1.95;color:var(--muted);margin-bottom:1.1rem;">I am a digital marketer who genuinely loves what I do. I thrive on taking a company's vision and voice and bringing it to life in a way that connects with real people. Whether it is crafting the perfect campaign concept, jumping into a brainstorm with a team, or finding a creative solution to a challenge nobody has cracked yet, I show up ready and energized every single time.</p>
+      <p style="font-family:sans-serif;font-size:14px;line-height:1.95;color:var(--muted);margin-bottom:1.1rem;">What makes me different is that I love both sides of marketing equally. I get excited digging into consumer data, studying purchase behavior, and translating metrics into real business outcomes. And I get just as excited building something beautiful, staying on top of trends, and telling stories that actually move people. I believe the best marketing happens when creative and analytical minds work together, and that is exactly the kind of collaborator I am.</p>
+      <p style="font-family:sans-serif;font-size:14px;line-height:1.95;color:var(--muted);margin-bottom:2rem;">Outside of work I am all about fitness, wellness, traveling, and creating content I genuinely care about. I am a hard worker, a team player, and someone who never stops looking for ways to grow. I cannot wait to bring that energy into new opportunities and help brands do something truly great.</p>
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+        <span class="tag">Creative Strategy</span><span class="tag">Consumer Insights</span>
+        <span class="tag">Trend Watching</span><span class="tag">Fitness &amp; Wellness</span>
+        <span class="tag">Travel</span><span class="tag">Content Creation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div>
+      <div class="sec-label">About</div>
+      <div class="stat"><div class="n">3.64</div><div class="d">GPA at Bryant University</div></div>
+      <div class="stat"><div class="n">5</div><div class="d">Industry Certifications</div></div>
+      <div class="stat"><div class="n">3+</div><div class="d">Years Content Creation</div></div>
+      <div class="stat"><div class="n">2</div><div class="d">Languages (EN / ES)</div></div>
+    </div>
+    <div>
+      <h2 class="sec-title">Bilingual. Data-driven. Story-first.</h2>
+      <p>I am a soon-to-be Digital Marketing graduate from Bryant University, where I have maintained a 3.64 GPA while leading campaign competitions, tutoring Spanish, and managing social media for campus organizations. I spent Spring 2025 studying abroad in Seville, Spain, deepening my Spanish fluency and cross-cultural marketing perspective.</p>
+      <p>I also serve as an Executive Assistant at Elite EA Collective, giving me direct exposure to executive decision-making and high-net-worth client management. That operational discipline makes me a sharper marketer. I understand the business behind every campaign.</p>
+      <p>Outside the classroom, I create fitness, wellness, and lifestyle content on TikTok and Instagram under @memyselfandkristen, applying real platform strategy every time I post.</p>
+      <div class="tags">
+        <span class="tag">Meta Ads Manager</span><span class="tag">Google Analytics</span>
+        <span class="tag">SEO / SEM</span><span class="tag">Mailchimp</span><span class="tag">Hootsuite</span>
+        <span class="tag">CapCut</span><span class="tag">Canva</span><span class="tag">HubSpot</span>
+        <span class="tag">Asana</span><span class="tag">Bilingual (ES/EN)</span>
+        <span class="tag">Microsoft Excel</span><span class="tag">Microsoft Word</span>
+        <span class="tag">Microsoft Outlook</span><span class="tag">Google Workspace</span>
+        <span class="tag">Claude</span><span class="tag">ChatGPT</span>
+        <span class="tag">Gemini</span><span class="tag">Microsoft CoPilot</span>
+        <span class="tag">AI Prompting</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<div class="cert-strip">
+  <div class="cert-inner">
+    <div class="sec-label">Certifications</div>
+    <div class="cert-grid">
+      <div class="cert-card"><div class="cert-icon"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="#e91e8c" stroke-width="1.5"/><path d="M4 7l2 2 4-4" stroke="#e91e8c" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="cert-name">Social Media Marketing</div><div class="cert-org">HubSpot</div><div class="cert-exp">Exp. Jan 2028</div></div>
+      <div class="cert-card"><div class="cert-icon"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="#e91e8c" stroke-width="1.5"/><path d="M4 7l2 2 4-4" stroke="#e91e8c" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="cert-name">Content Marketing</div><div class="cert-org">HubSpot</div><div class="cert-exp">Exp. Nov 2027</div></div>
+      <div class="cert-card"><div class="cert-icon"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="#e91e8c" stroke-width="1.5"/><path d="M4 7l2 2 4-4" stroke="#e91e8c" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="cert-name">SEO Certification</div><div class="cert-org">HubSpot</div><div class="cert-exp">Exp. Nov 2026</div></div>
+      <div class="cert-card"><div class="cert-icon"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="#e91e8c" stroke-width="1.5"/><path d="M4 7l2 2 4-4" stroke="#e91e8c" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="cert-name">AI Fundamentals</div><div class="cert-org">IBM</div><div class="cert-exp">Issued Jun 2025</div></div>
+      <div class="cert-card"><div class="cert-icon"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="#e91e8c" stroke-width="1.5"/><path d="M4 7l2 2 4-4" stroke="#e91e8c" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="cert-name">Google Ads Display</div><div class="cert-org">Google</div><div class="cert-exp">Exp. Mar 2027</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- DIGITAL MARKETING CAMPAIGNS -->
+<div style="background:var(--surface);padding:5rem 3rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border);" id="campaigns">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="sec-label">Digital Marketing Campaigns</div>
+    <h2 class="sec-title">Campaign Work</h2>
+    <!-- FROZEN GARDEN -->
+    <div id="tab-frozen">
+      <div class="campaign-kv">
+        <div class="kv-left">
+          <h2>Frozen Garden — New Target Market Campaign</h2>
+          <p>Bryant University Digital Marketing Competition, Spring 2026. As Team Lead, developed a comprehensive full-funnel digital strategy to identify and capture a new consumer segment beyond Frozen Garden's existing W30–55 and Mom audiences.</p>
+        </div>
+        <div class="kv-badges">
+          <div class="kv-badge"><div class="b1">Budget</div><div class="b2">$250K</div></div>
+          <div class="kv-badge"><div class="b1">Timeline</div><div class="b2">12 mo</div></div>
+          <div class="kv-badge"><div class="b1">Role</div><div class="b2">Team Lead</div></div>
+        </div>
+      </div>
+      <div class="campaign-cols">
+        <div class="c-block">
+          <h4>Brand Context — Key Metrics</h4>
+          <div class="metric-row">
+            <div class="metric"><div class="mn">$142</div><div class="md">Avg. order value</div></div>
+            <div class="metric"><div class="mn">$306</div><div class="md">Customer LTV</div></div>
+            <div class="metric"><div class="mn">40%</div><div class="md">Gross profit margin</div></div>
+          </div>
+          <h4>Projected Campaign Funnel</h4>
+          <div class="funnel-row"><div class="f-label">Awareness</div><div class="f-wrap"><div class="f-bar" style="width:100%"><span>Meta + Google reach</span></div></div></div>
+          <div class="funnel-row"><div class="f-label">Engagement</div><div class="f-wrap"><div class="f-bar" style="width:65%"><span>Social + Content</span></div></div></div>
+          <div class="funnel-row"><div class="f-label">Consideration</div><div class="f-wrap"><div class="f-bar" style="width:42%"><span>Influencer + Blog</span></div></div></div>
+          <div class="funnel-row"><div class="f-label">Conversion</div><div class="f-wrap"><div class="f-bar" style="width:22%"><span>Paid + Email</span></div></div></div>
+          <div class="funnel-row"><div class="f-label">Retention</div><div class="f-wrap"><div class="f-bar" style="width:14%"><span>Email automation</span></div></div></div>
+        </div>
+        <div class="c-block">
+          <h4>New Audience Identified</h4>
+          <div class="new-audience">
+            <h5>Fitness-Forward Adults 18–30</h5>
+            <p>Frozen Garden's existing market centers on W30–55 and convenience-seeking moms. Our team identified a high-growth opportunity in fitness-forward young adults, already aligned with Frozen Garden's clean-ingredient positioning and underserved by current campaigns.</p>
+          </div>
+          <p style="font-family:sans-serif;font-size:12px;color:var(--muted);line-height:1.75;margin-top:1rem;"><strong style="color:var(--text);font-weight:500;">Strategic differentiator:</strong> Proposed a micro-influencer seeding program pairing Frozen Garden with fitness creators, reducing paid CPM while building authentic credibility through organic UGC on TikTok.</p>
+        </div>
+      </div>
+      <div class="deliverables">
+        <div class="deliv"><h5>Market Research</h5><p>Persona development, consumer insights, competitive audit</p></div>
+        <div class="deliv"><h5>Owned Strategy</h5><p>Social calendar, email nurture series, website content</p></div>
+        <div class="deliv"><h5>Paid Strategy</h5><p>Meta Ads, Google Search, programmatic, video concepts</p></div>
+        <div class="deliv"><h5>KPI Framework</h5><p>CPM, CTR, ROAS, CAC — presented to industry judges</p></div>
+      </div>
+    </div>
+
+    <!-- BRYANT -->
+    <div style="margin-top:4rem;padding-top:4rem;border-top:1px solid var(--border);">
+      <div class="campaign-kv">
+        <div class="kv-left">
+          <h2>"From Prospect to Partner" — Bryant University Marketing Department</h2>
+          <p>Developed a full-funnel social media strategy to guide users from awareness through long-term alumni engagement across Instagram, TikTok, and LinkedIn. Built audience personas, weekly content system, KPI framework, and a $5,000 budget allocation.</p>
+        </div>
+        <div class="kv-badges">
+          <div class="kv-badge"><div class="b1">Budget</div><div class="b2">$5,000</div></div>
+          <div class="kv-badge"><div class="b1">Segments</div><div class="b2">3</div></div>
+          <div class="kv-badge"><div class="b1">Platforms</div><div class="b2">3</div></div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:2rem;">
+        <div style="border:1px solid var(--border);padding:1.25rem;background:var(--bg);">
+          <div style="font-family:sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--hot);margin-bottom:0.5rem;">Prospective Students</div>
+          <div style="font-size:22px;margin-bottom:0.25rem;">+25%</div>
+          <div style="font-family:sans-serif;font-size:12px;color:var(--muted);line-height:1.6;">Website engagement among high school-age prospects by end of fiscal year</div>
+          <div style="font-family:sans-serif;font-size:11px;color:var(--muted);margin-top:0.75rem;font-style:italic;">Platform: TikTok + Instagram Reels</div>
+        </div>
+        <div style="border:1px solid var(--border);padding:1.25rem;background:var(--bg);">
+          <div style="font-family:sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--hot);margin-bottom:0.5rem;">Current Students</div>
+          <div style="font-size:22px;margin-bottom:0.25rem;">+40%</div>
+          <div style="font-family:sans-serif;font-size:12px;color:var(--muted);line-height:1.6;">Social following growth + 30% increase in event attendance this academic year</div>
+          <div style="font-family:sans-serif;font-size:11px;color:var(--muted);margin-top:0.75rem;font-style:italic;">Platform: Instagram Stories + LinkedIn</div>
+        </div>
+        <div style="border:1px solid var(--border);padding:1.25rem;background:var(--bg);">
+          <div style="font-family:sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--hot);margin-bottom:0.5rem;">Alumni</div>
+          <div style="font-size:22px;margin-bottom:0.25rem;">+15%</div>
+          <div style="font-family:sans-serif;font-size:12px;color:var(--muted);line-height:1.6;">Mentorship + speaking participation + 5% YOY increase in scholarship donations</div>
+          <div style="font-family:sans-serif;font-size:11px;color:var(--muted);margin-top:0.75rem;font-style:italic;">Platform: LinkedIn</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:0.75rem;margin-bottom:2rem;">
+        <div style="border:1px solid var(--border);padding:1rem;background:var(--bg);"><div style="font-family:sans-serif;font-size:11px;font-weight:500;color:var(--hot);margin-bottom:0.5rem;">Sunday</div><div style="font-family:sans-serif;font-size:11px;color:var(--text);margin-bottom:0.25rem;">Stories / Polls / Event Updates</div><div style="font-family:sans-serif;font-size:10px;color:var(--muted);">Instagram · 10–11 AM</div></div>
+        <div style="border:1px solid var(--border);padding:1rem;background:var(--bg);"><div style="font-family:sans-serif;font-size:11px;font-weight:500;color:var(--hot);margin-bottom:0.5rem;">Monday</div><div style="font-family:sans-serif;font-size:11px;color:var(--text);margin-bottom:0.25rem;">Infographic — Personal Development</div><div style="font-family:sans-serif;font-size:10px;color:var(--muted);">Instagram + LinkedIn · 12 PM</div></div>
+        <div style="border:1px solid var(--border);padding:1rem;background:var(--bg);"><div style="font-family:sans-serif;font-size:11px;font-weight:500;color:var(--hot);margin-bottom:0.5rem;">Tuesday</div><div style="font-family:sans-serif;font-size:11px;color:var(--text);margin-bottom:0.25rem;">Stories — Day in the Life</div><div style="font-family:sans-serif;font-size:10px;color:var(--muted);">Instagram · 7–9 AM</div></div>
+        <div style="border:1px solid var(--border);padding:1rem;background:var(--bg);"><div style="font-family:sans-serif;font-size:11px;font-weight:500;color:var(--hot);margin-bottom:0.5rem;">Thursday</div><div style="font-family:sans-serif;font-size:11px;color:var(--text);margin-bottom:0.25rem;">Carousel — Alumni Spotlight</div><div style="font-family:sans-serif;font-size:10px;color:var(--muted);">LinkedIn + Instagram · 11 AM</div></div>
+        <div style="border:1px solid var(--border);padding:1rem;background:var(--bg);"><div style="font-family:sans-serif;font-size:11px;font-weight:500;color:var(--hot);margin-bottom:0.5rem;">Friday</div><div style="font-family:sans-serif;font-size:11px;color:var(--text);margin-bottom:0.25rem;">Short-Form Video — Career Tips</div><div style="font-family:sans-serif;font-size:10px;color:var(--muted);">Instagram + TikTok · 11 AM / 7 PM</div></div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+        <span class="chip" style="font-size:11px;padding:5px 12px;">Professional</span><span class="chip" style="font-size:11px;padding:5px 12px;">Innovative</span><span class="chip" style="font-size:11px;padding:5px 12px;">Academic</span><span class="chip" style="font-size:11px;padding:5px 12px;">Approachable</span><span class="chip" style="font-size:11px;padding:5px 12px;">Insight-driven</span><span class="chip" style="font-size:11px;padding:5px 12px;">Creative</span><span class="chip" style="font-size:11px;padding:5px 12px;">Fun and Interactive</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<section id="work">
+  <div class="sec-label">Projects &amp; Experience</div>
+  <h2 class="sec-title">Selected Work</h2>
+  <div class="project">
+    <div class="project-header" onclick="toggleProject('p1')">
+      <div>
+        <div class="p-tag">Content Creation · TikTok &amp; Instagram</div>
+        <div class="p-title">Personal Brand Strategy — @memyselfandkristen</div>
+        <div class="p-summary">Since August 2023, independently planned, filmed, and edited fitness, wellness, and lifestyle content. Managed posting cadence, trend research, and algorithm optimization across TikTok and Instagram.</div>
+        <div class="chips"><span class="chip">CapCut</span><span class="chip">Content Strategy</span><span class="chip">Brand Voice</span><span class="chip">Algorithm Optimization</span><span class="chip">Trend Research</span></div>
+      </div>
+      <button class="toggle-btn" id="p1-btn">View Details ↓</button>
+    </div>
+    <div class="project-detail" id="p1">
+      <div class="detail-grid">
+        <div class="detail-col">
+          <h4>What This Demonstrates</h4>
+          <p>Running a personal brand from scratch is a masterclass in digital marketing. Every post is a real test of content strategy, brand consistency, audience psychology, and platform algorithm knowledge with real data feedback, not simulated results.</p>
+          <ul><li>Maintained consistent brand voice and aesthetic across platforms</li><li>Monitored algorithm updates through webinars and industry training</li><li>Optimized posting cadence based on engagement data</li></ul>
+        </div>
+        <div class="detail-col">
+          <h4>Content Pillars</h4>
+          <ul><li>Fitness and workout content</li><li>Wellness routines and habits</li><li>Lifestyle and day-in-the-life</li><li>Study abroad and travel (Spain 2025)</li><li>Mental health awareness and self love</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="project">
+    <div class="project-header" onclick="toggleProject('p2')">
+      <div>
+        <div class="p-tag">International Experience · Seville, Spain</div>
+        <div class="p-title">Cross-Cultural Marketing Lens — Study Abroad, Spring 2025</div>
+        <div class="p-summary">Completed a full semester at Universidad Pablo de Olavide with immersion in Spanish language, culture, and international business, bringing back a bilingual, cross-cultural marketing perspective.</div>
+        <div class="chips"><span class="chip">Bilingual Marketing</span><span class="chip">International Business</span><span class="chip">Consumer Culture</span><span class="chip">Cross-Cultural Strategy</span></div>
+      </div>
+      <button class="toggle-btn" id="p2-btn">View Details ↓</button>
+    </div>
+    <div class="project-detail" id="p2">
+      <div class="detail-grid">
+        <div class="detail-col">
+          <h4>Why This Matters for Marketing</h4>
+          <p>Spanish is the second most-spoken language in the United States, and bilingual marketers who understand cultural nuance are in high demand. My time in Seville deepened my understanding of how culture, values, and identity shape consumer behavior.</p>
+        </div>
+        <div class="detail-col">
+          <h4>Practical Application</h4>
+          <p>I can develop, execute, and communicate marketing strategy in both English and Spanish — from ad copy and email campaigns to social content and client-facing presentations. This opens doors to U.S. Hispanic market strategy that most entry-level candidates cannot offer.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAID ADS -->
+<div style="background:var(--surface);padding:5rem 3rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border);" id="ads">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="sec-label">Mock Paid Media Campaign</div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:0.75rem;flex-wrap:wrap;gap:1rem;">
+      <h2 class="sec-title" style="margin-bottom:0;">Ryze — "No Jitters" Campaign</h2>
+      <div style="background:var(--hot);color:#fff;font-family:sans-serif;font-size:11px;padding:6px 14px;letter-spacing:0.06em;text-transform:uppercase;">Mock Campaign</div>
+    </div>
+    <p style="font-family:sans-serif;font-size:14px;color:var(--muted);line-height:1.8;max-width:700px;margin-bottom:1.5rem;">Developed a multi-channel paid media campaign for Ryze Mushroom Coffee targeting health-conscious young professionals seeking sustained energy without caffeine-related jitters or crashes. Original product photography was captured in Bryant University's Business Entrepreneurship and Leadership Center Digital Marketing Lab, creating clean, brand-aligned visuals used across all paid media assets.</p>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:0.75rem;margin-bottom:3rem;">
+      <div style="border:1px solid var(--border);padding:1rem;text-align:center;background:var(--bg);"><div style="font-family:sans-serif;font-size:11px;color:var(--hot);margin-bottom:0.3rem;text-transform:uppercase;letter-spacing:0.07em;">Thinking</div><div style="font-family:sans-serif;font-size:11px;color:var(--muted);line-height:1.5;">Full-funnel awareness to intent capture</div></div>
+      <div style="border:1px solid var(--border);padding:1rem;text-align:center;background:var(--bg);"><div style="font-family:sans-serif;font-size:11px;color:var(--hot);margin-bottom:0.3rem;text-transform:uppercase;letter-spacing:0.07em;">Integration</div><div style="font-family:sans-serif;font-size:11px;color:var(--muted);line-height:1.5;">Paid social + paid search working together</div></div>
+      <div style="border:1px solid var(--border);padding:1rem;text-align:center;background:var(--bg);"><div style="font-family:sans-serif;font-size:11px;color:var(--hot);margin-bottom:0.3rem;text-transform:uppercase;letter-spacing:0.07em;">Production</div><div style="font-family:sans-serif;font-size:11px;color:var(--muted);line-height:1.5;">Original product photography shot in-house</div></div>
+      <div style="border:1px solid var(--border);padding:1rem;text-align:center;background:var(--bg);"><div style="font-family:sans-serif;font-size:11px;color:var(--hot);margin-bottom:0.3rem;text-transform:uppercase;letter-spacing:0.07em;">Testing</div><div style="font-family:sans-serif;font-size:11px;color:var(--muted);line-height:1.5;">A/B CTA testing for performance optimization</div></div>
+      <div style="border:1px solid var(--border);padding:1rem;text-align:center;background:var(--bg);"><div style="font-family:sans-serif;font-size:11px;color:var(--hot);margin-bottom:0.3rem;text-transform:uppercase;letter-spacing:0.07em;">Alignment</div><div style="font-family:sans-serif;font-size:11px;color:var(--muted);line-height:1.5;">Messaging, audience, and platform strategy unified</div></div>
+    </div>
+
+    <h4 style="font-family:sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--hot);margin-bottom:0.5rem;">Meta (Instagram / Facebook) — A/B Test</h4>
+    <p style="font-family:sans-serif;font-size:12px;color:var(--muted);margin-bottom:1.5rem;max-width:700px;line-height:1.75;">Built a Meta ad campaign positioning Ryze as a jitter-free coffee alternative for young professionals. Creative and copy used a problem-solution framework addressing pain points like anxiety and energy crashes. Structured A/B testing on CTA language evaluated impact on click-through and conversion performance.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:3rem;">
+      <div>
+        <div style="font-family:sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.75rem;">Variant A — "Shop Now" · Bottom-of-funnel</div>
+        <div style="background:#fff;border:1px solid var(--border);border-radius:8px;overflow:hidden;max-width:380px;margin:0 auto;">
+          <img src="https://i.ibb.co/jkYkWWC4/IMG-1359.png" style="width:100%;display:block;" alt="Meta Ad Variant A"/>
+        </div>
+        <div style="background:var(--baby);padding:0.85rem 1rem;margin-top:0.75rem;"><div style="font-family:sans-serif;font-size:12px;color:var(--text);line-height:1.6;">Direct purchase CTA targets high-intent users ready to convert. Best suited for retargeting audiences already familiar with the brand.</div></div>
+      </div>
+      <div>
+        <div style="font-family:sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.75rem;">Variant B — "Ryze &amp; Grind" · Top-of-funnel</div>
+        <div style="background:#fff;border:1px solid var(--border);border-radius:8px;overflow:hidden;max-width:380px;margin:0 auto;">
+          <img src="https://i.ibb.co/Y7pRp37P/IMG-1360.png" style="width:100%;display:block;" alt="Meta Ad Variant B"/>
+        </div>
+        <div style="background:var(--baby);padding:0.85rem 1rem;margin-top:0.75rem;"><div style="font-family:sans-serif;font-size:12px;color:var(--text);line-height:1.6;">Brand-aligned lifestyle CTA builds identity resonance with new audiences. Designed to drive awareness and engagement before a purchase ask.</div></div>
+      </div>
+    </div>
+
+    <h4 style="font-family:sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--hot);margin-bottom:0.5rem;">Google Search Ad</h4>
+    <p style="font-family:sans-serif;font-size:12px;color:var(--muted);margin-bottom:1.5rem;max-width:700px;line-height:1.75;">Developed Google Search ad mockups targeting high-intent users actively seeking alternatives to traditional coffee. Ad copy addresses key consumer pain points while positioning Ryze as the solution for calm, sustained energy. Headline "Mushroom Coffee | Focus | No Jitters" is designed to match search intent and drive qualified clicks.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:3rem;">
+      <div style="background:#fff;border:1px solid var(--border);border-radius:8px;overflow:hidden;">
+        <img src="https://i.ibb.co/Rk186Cbg/IMG-1370.png" style="width:100%;display:block;" alt="Google Search Ad"/>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border);border-radius:8px;overflow:hidden;">
+        <img src="https://i.ibb.co/m73Zrbf/IMG-1371.jpg" style="width:100%;display:block;" alt="Google Ad Detail"/>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+<!-- INSTAGRAM -->
+<div class="ig-section" id="instagram">
+  <div class="ig-wrap">
+    <div class="sec-label">Personal Brand</div>
+    <div class="ig-profile-row">
+      <div class="ig-profile">
+        <div class="ig-av-big"></div>
+        <div><div class="ig-name">Kristen Miranda</div><div class="ig-handle">@memyselfandkristen</div></div>
+      </div>
+      <div class="ig-stats">
+        <div class="ig-stat"><div class="n">TikTok</div><div class="l">Creator since Aug 2023</div></div>
+        <div class="ig-stat"><div class="n">Instagram</div><div class="l">Fitness &amp; Lifestyle</div></div>
+      </div>
+    </div>
+    <div class="ig-topics">
+      <span class="topic">Fitness</span><span class="topic">Wellness</span><span class="topic">Lifestyle</span>
+      <span class="topic">Self Love</span><span class="topic">Day in the Life</span>
+      <span class="topic">Travel</span><span class="topic">Mental Health Awareness</span>
+    </div>
+    <div style="width:100%;">
+      <div data-behold-id="0UgQTGm2pFibVMBGD87q"></div>
+      <script>(function(){const d=document,s=d.createElement("script");s.type="module";s.src="https://w.behold.so/widget.js";d.head.append(s);})();</script>
+    </div>
+    <p style="font-family:sans-serif;font-size:12px;color:var(--muted);text-align:center;margin-top:0.75rem;font-style:italic;">@memyselfandkristen · Fitness, Wellness &amp; Lifestyle</p>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-wrap">
+    <div class="sec-label">Contact</div>
+    <h2 class="sec-title">Let's Work Together</h2>
+    <div class="divider"></div>
+    <p>I am actively seeking entry-level Digital Marketing roles. Currently New England based, graduating May 2026 and available immediately. Open to relocation in Florida, North Carolina, New York, and New Jersey. Open to full-time positions and brand partnerships in the wellness and lifestyle space.</p>
+    <div class="contact-links">
+      <a href="mailto:kristen.a.miranda@gmail.com" class="clink">kristen.a.miranda@gmail.com</a>
+      <a href="https://linkedin.com/in/kristenamiranda" class="clink">LinkedIn</a>
+      <a href="https://www.instagram.com/memyselfandkristen/" class="clink">@memyselfandkristen</a>
+      <a href="tel:5085301088" class="clink">508-530-1088</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Kristen A. Miranda · Digital Marketing Portfolio · Bryant University, Class of 2026</footer>
+
+<script>
+  // STARS
+  const starsContainer = document.getElementById('stars-bg');
+  const starChars = ['✦','✧','★','✩','✫'];
+  const colors = ['#e91e8c','#f8bbd0','#fce4ec','#c2185b','#ff80ab'];
+  for(let i=0;i<25;i++){
+    const s=document.createElement('div');s.className='fixed-star';
+    s.textContent=starChars[Math.floor(Math.random()*starChars.length)];
+    s.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;font-size:${Math.random()*18+8}px;color:${colors[Math.floor(Math.random()*colors.length)]};animation-duration:${Math.random()*3+2}s;animation-delay:${Math.random()*4}s;opacity:0.3;`;
+    starsContainer.appendChild(s);
+  }
+  function spawnFloatStar(){
+    const s=document.createElement('div');s.className='float-star';
+    s.textContent=starChars[Math.floor(Math.random()*starChars.length)];
+    s.style.cssText=`left:${Math.random()*100}%;bottom:-30px;font-size:${Math.random()*14+6}px;color:${colors[Math.floor(Math.random()*colors.length)]};animation-duration:${Math.random()*8+6}s;opacity:0.6;`;
+    starsContainer.appendChild(s);
+    setTimeout(()=>s.remove(),(Math.random()*8+6)*1000);
+  }
+  setInterval(spawnFloatStar,600);
+
+  // SCROLL
+  const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
+  document.querySelectorAll('section,.cert-strip,.project,.cert-card,.stat,.metric,.deliv,.kpi').forEach(el=>{el.classList.add('fade-up');observer.observe(el);});
+
+  // SMOOTH SCROLL
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'});});
+  });
+
+
+
+  // CAROUSEL
+  let ryzeIdx=0;
+  const ryzeCaptions=["Flat lay composition — Ryze Mushroom Coffee + Probiotic Creamer","Product lineup — hero shot with mug and wooden spoon prop styling","Standing products — Ryze Probiotic Creamer + Mushroom Coffee","Detail shot — Ryze product packaging"];
+  function ryzeSlide(dir){ryzeIdx=(ryzeIdx+dir+4)%4;ryzeGoTo(ryzeIdx);}
+  function ryzeGoTo(i){
+    ryzeIdx=i;
+    document.getElementById('ryze-track').style.transform=`translateX(-${i*100}%)`;
+    document.getElementById('ryze-caption').textContent=ryzeCaptions[i];
+    document.querySelectorAll('.rdot').forEach((d,idx)=>{d.style.background=idx===i?'var(--hot)':'var(--baby-mid)';});
+  }
+
+  // PROJECT TOGGLE
+  function toggleProject(id){
+    const detail=document.getElementById(id);const btn=document.getElementById(id+'-btn');
+    const isOpen=detail.classList.contains('open');
+    document.querySelectorAll('.project-detail').forEach(d=>d.classList.remove('open'));
+    document.querySelectorAll('.toggle-btn').forEach(b=>b.textContent='View Details ↓');
+    if(!isOpen){detail.classList.add('open');btn.textContent='Close ↑';}
+  }
+</script>
+</body>
+</html>
