@@ -12,16 +12,14 @@
   }
   body{font-family:'Georgia',serif;color:var(--text);background:var(--bg);font-size:16px;overflow-x:hidden;}
 
-  /* NAV */
   nav{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 3rem;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(255,255,255,0.96);z-index:100;}
   .logo{font-family:'Georgia',serif;font-size:17px;letter-spacing:0.08em;color:var(--hot);}
-  .nav-links{display:flex;gap:2rem;list-style:none;}
+  .nav-links{display:flex;gap:1.5rem;list-style:none;}
   .nav-links a{text-decoration:none;font-family:sans-serif;font-size:12px;letter-spacing:0.07em;color:var(--muted);text-transform:uppercase;transition:color 0.2s;position:relative;}
   .nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--hot);transition:width 0.3s ease;}
   .nav-links a:hover{color:var(--hot);}
   .nav-links a:hover::after{width:100%;}
 
-  /* HERO */
   .hero{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;padding:6rem 3rem;max-width:1100px;margin:0 auto;position:relative;}
   .hero-tag{font-family:sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--hot);margin-bottom:1rem;}
   .hero h1{font-size:50px;font-weight:normal;line-height:1.12;margin-bottom:1.2rem;}
@@ -36,14 +34,11 @@
   .btn-o{background:transparent;color:var(--hot);border:1px solid var(--hot);padding:0.75rem 1.8rem;font-family:sans-serif;font-size:12px;letter-spacing:0.07em;text-transform:uppercase;cursor:pointer;transition:all 0.2s;}
   .btn-o:hover{background:var(--baby);}
 
-  /* STARS */
-  .stars-wrap{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
-  .star{position:absolute;pointer-events:none;animation:starFloat linear infinite;}
-  @keyframes starFloat{0%{transform:translateY(100vh) rotate(0deg);opacity:0;}10%{opacity:1;}90%{opacity:0.8;}100%{transform:translateY(-120px) rotate(720deg);opacity:0;}}
-  @keyframes twinkle{0%,100%{opacity:0.2;transform:scale(0.8);}50%{opacity:1;transform:scale(1.2);}}
-  .fixed-star{position:fixed;pointer-events:none;animation:twinkle ease-in-out infinite;}
+  @keyframes twinkle{0%,100%{opacity:0.15;transform:scale(0.7) rotate(0deg);}50%{opacity:1;transform:scale(1.3) rotate(20deg);}}
+  @keyframes floatUp{0%{transform:translateY(0) rotate(0deg);opacity:0.8;}100%{transform:translateY(-110vh) rotate(540deg);opacity:0;}}
+  .fixed-star{position:fixed;pointer-events:none;z-index:0;animation:twinkle ease-in-out infinite;}
+  .float-star{position:fixed;pointer-events:none;z-index:0;animation:floatUp linear infinite;}
 
-  /* PHONE */
   .phone-wrap{display:flex;justify-content:center;}
   .phone{width:210px;height:430px;border:2px solid var(--border);border-radius:32px;background:var(--surface);padding:12px;overflow:hidden;animation:phoneFloat 4s ease-in-out infinite;}
   @keyframes phoneFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
@@ -58,12 +53,10 @@
   .c4{background:#f8bbd0;}.c5{background:#fff3e0;}.c6{background:#e1f5fe;}
   .ig-u{font-family:sans-serif;font-size:10px;color:var(--muted);text-align:center;margin-top:7px;}
 
-  /* SECTIONS */
   section{padding:5rem 3rem;max-width:1100px;margin:0 auto;position:relative;}
   .sec-label{font-family:sans-serif;font-size:11px;letter-spacing:0.13em;text-transform:uppercase;color:var(--hot);margin-bottom:1.2rem;}
   .sec-title{font-size:34px;font-weight:normal;margin-bottom:1.5rem;line-height:1.2;}
 
-  /* ABOUT */
   .about-grid{display:grid;grid-template-columns:220px 1fr;gap:4rem;}
   .stat{border-left:2px solid var(--baby-mid);padding-left:1.1rem;margin-bottom:1.8rem;transition:border-color 0.3s;}
   .stat:hover{border-color:var(--hot);}
@@ -74,7 +67,6 @@
   .tag{background:var(--baby);color:var(--hot-dark);font-family:sans-serif;font-size:11px;padding:5px 12px;transition:background 0.2s,transform 0.2s;cursor:default;}
   .tag:hover{background:var(--baby-mid);transform:scale(1.05);}
 
-  /* CERTS */
   .cert-strip{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2.5rem 3rem;}
   .cert-inner{max-width:1100px;margin:0 auto;}
   .cert-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-top:1.5rem;}
@@ -85,7 +77,6 @@
   .cert-org{font-family:sans-serif;font-size:10px;color:var(--hot);}
   .cert-exp{font-family:sans-serif;font-size:9px;color:var(--muted);margin-top:3px;}
 
-  /* PROJECTS */
   .project{border:1px solid var(--border);margin-bottom:1.5rem;overflow:hidden;transition:transform 0.25s ease,box-shadow 0.25s ease;}
   .project:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(233,30,140,0.08);}
   .project-header{display:grid;grid-template-columns:1fr auto;align-items:start;gap:1rem;padding:2rem 2rem 1.5rem;cursor:pointer;transition:background 0.2s;}
@@ -108,9 +99,14 @@
   .chips{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:1.25rem;}
   .chip{background:var(--baby);font-family:sans-serif;font-size:10px;color:var(--hot-dark);padding:3px 9px;}
 
-  /* CAMPAIGN */
-  .campaign-bg{background:var(--surface);padding:5rem 3rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
-  .campaign-inner{max-width:1100px;margin:0 auto;}
+  /* CAMPAIGN TABS */
+  .camp-tabs{display:flex;gap:0;border-bottom:1px solid var(--border);margin-bottom:2.5rem;}
+  .camp-tab{font-family:sans-serif;font-size:12px;letter-spacing:0.07em;text-transform:uppercase;padding:0.85rem 2rem;cursor:pointer;border:none;background:transparent;color:var(--muted);border-bottom:2px solid transparent;transition:all 0.2s;margin-bottom:-1px;}
+  .camp-tab.active{color:var(--hot);border-bottom:2px solid var(--hot);}
+  .camp-tab:hover{color:var(--hot);}
+  .camp-panel{display:none;}
+  .camp-panel.active{display:block;}
+
   .campaign-kv{background:#e91e8c;padding:2.5rem;margin-bottom:2.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;}
   .kv-left h2{font-size:26px;color:#fff;font-weight:normal;}
   .kv-left p{font-family:sans-serif;font-size:13px;color:rgba(255,255,255,0.85);margin-top:0.5rem;max-width:460px;line-height:1.7;}
@@ -129,13 +125,6 @@
   .f-wrap{flex:1;height:30px;background:var(--baby);}
   .f-bar{height:100%;background:var(--hot);display:flex;align-items:center;padding-left:10px;}
   .f-bar span{font-family:sans-serif;font-size:11px;color:#fff;font-weight:600;}
-  .b-row{display:flex;align-items:center;gap:10px;margin-bottom:7px;}
-  .b-label{font-family:sans-serif;font-size:11px;color:var(--muted);width:120px;}
-  .b-wrap{flex:1;height:22px;background:var(--baby);}
-  .b-bar{height:100%;background:var(--baby-mid);display:flex;align-items:center;padding-left:8px;}
-  .b-bar.hot{background:var(--hot);}
-  .b-bar span{font-family:sans-serif;font-size:10px;color:var(--hot-dark);font-weight:600;}
-  .b-bar.hot span{color:#fff;}
   .new-audience{background:var(--baby);padding:1.4rem;margin-top:1.2rem;}
   .new-audience h5{font-family:sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--hot);margin-bottom:0.6rem;}
   .new-audience p{font-family:sans-serif;font-size:13px;color:var(--text);line-height:1.75;}
@@ -144,7 +133,6 @@
   .deliv h5{font-family:sans-serif;font-size:12px;color:var(--text);margin-bottom:0.25rem;}
   .deliv p{font-family:sans-serif;font-size:11px;color:var(--muted);}
 
-  /* INSTAGRAM */
   .ig-section{padding:5rem 3rem;}
   .ig-wrap{max-width:1100px;margin:0 auto;}
   .ig-profile-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem;}
@@ -158,7 +146,6 @@
   .ig-topics{display:flex;gap:0.5rem;margin-bottom:1.5rem;flex-wrap:wrap;}
   .topic{background:var(--baby);font-family:sans-serif;font-size:11px;color:var(--hot-dark);padding:4px 12px;}
 
-  /* CONTACT */
   .contact-wrap{text-align:center;max-width:480px;margin:0 auto;}
   .contact-wrap p{font-family:sans-serif;font-size:14px;color:var(--muted);line-height:1.85;margin-bottom:2rem;}
   .contact-links{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;}
@@ -167,31 +154,20 @@
   .divider{width:36px;height:1px;background:var(--baby-mid);margin:0 auto 2rem;}
   footer{text-align:center;padding:2rem;font-family:sans-serif;font-size:11px;color:var(--muted);border-top:1px solid var(--border);}
 
-  /* SCROLL ANIMATIONS */
   .fade-up{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
   .fade-up.visible{opacity:1;transform:translateY(0);}
   .stagger-1{transition-delay:0.1s;}.stagger-2{transition-delay:0.2s;}.stagger-3{transition-delay:0.3s;}.stagger-4{transition-delay:0.4s;}.stagger-5{transition-delay:0.5s;}
 
-  /* STARS */
-  @keyframes twinkle{0%,100%{opacity:0.15;transform:scale(0.7) rotate(0deg);}50%{opacity:1;transform:scale(1.3) rotate(20deg);}}
-  @keyframes floatUp{0%{transform:translateY(0) rotate(0deg);opacity:0.8;}100%{transform:translateY(-110vh) rotate(540deg);opacity:0;}}
-  .fixed-star{position:fixed;pointer-events:none;z-index:0;animation:twinkle ease-in-out infinite;}
-  .float-star{position:fixed;pointer-events:none;z-index:0;animation:floatUp linear infinite;}
-
-  /* HI SECTION SPECIAL */
-  .hi-section{padding:5rem 3rem;max-width:1100px;margin:0 auto;position:relative;}
   @keyframes shimmer{0%{background-position:200% center;}100%{background-position:-200% center;}}
   .hi-name{background:linear-gradient(90deg,var(--hot),#ff80ab,var(--hot-dark),#ff4081,var(--hot));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear infinite;}
-
-  /* PHOTO HOVER */
   .photo-wrap{overflow:hidden;position:relative;}
   .photo-wrap img{transition:transform 0.6s ease;}
   .photo-wrap img:hover{transform:scale(1.04);}
+  .stars-wrap{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
 </style>
 </head>
 <body>
 
-<!-- FIXED TWINKLING STARS -->
 <div class="stars-wrap" id="stars-bg"></div>
 
 <nav>
@@ -199,10 +175,9 @@
   <ul class="nav-links">
     <li><a href="#hi">Hi, I'm Kristen</a></li>
     <li><a href="#about">About</a></li>
-    <li><a href="#campaign">Frozen Garden</a></li>
+    <li><a href="#campaigns">Campaigns</a></li>
     <li><a href="#work">Projects</a></li>
-    <li><a href="#bryant">Bryant U</a></li>
-    <li><a href="#photography">Photography</a></li>
+    <li><a href="#ads">Paid Ads</a></li>
     <li><a href="#instagram">Brand</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -216,7 +191,7 @@
     <p class="hero-sub">B.S. Business Administration, Digital Marketing concentration. Bilingual strategist with hands-on campaign experience, five industry certifications, and a real-world personal brand in fitness &amp; wellness.</p>
     <p class="hero-detail">3.64 GPA &nbsp;·&nbsp; Bilingual EN/ES &nbsp;·&nbsp; Based in CT &nbsp;·&nbsp; Open to Relocation</p>
     <div class="btns">
-      <button class="btn-p" onclick="document.getElementById('campaign').scrollIntoView({behavior:'smooth'})">View My Work</button>
+      <button class="btn-p" onclick="document.getElementById('campaigns').scrollIntoView({behavior:'smooth'})">View My Work</button>
       <button class="btn-o" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Let's Connect</button>
     </div>
   </div>
@@ -238,21 +213,21 @@
 </div>
 
 <!-- HI I'M KRISTEN -->
-<section id="hi" class="hi-section">
+<section id="hi">
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;">
     <div style="position:relative;" class="photo-wrap">
       <div style="position:absolute;top:-12px;left:-12px;width:100%;height:100%;border:1px solid var(--border);z-index:0;"></div>
-      <img src="https://i.ibb.co/zW5znSrB/IMG-1222.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 20%;display:block;position:relative;z-index:1;" />
+      <img src="https://i.ibb.co/PGc5Lh9H/1-EA11214-A3-DD-47-F3-96-E0-CE3-BFB475214.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;position:relative;z-index:1;" />
     </div>
     <div>
       <div class="sec-label">Nice to meet you</div>
       <h2 style="font-size:48px;font-weight:normal;margin-bottom:0.5rem;line-height:1.1;">Hi, I'm <span class="hi-name">Kristen.</span></h2>
       <div style="display:flex;gap:6px;margin-bottom:1.5rem;flex-wrap:wrap;">
-        <span style="font-size:20px;animation:twinkle 2s ease-in-out infinite;display:inline-block;">✦</span>
+        <span style="font-size:20px;animation:twinkle 2s ease-in-out infinite;display:inline-block;color:var(--hot);">✦</span>
         <span style="font-size:16px;animation:twinkle 2.5s ease-in-out infinite 0.3s;display:inline-block;color:var(--baby-mid);">✦</span>
         <span style="font-size:24px;animation:twinkle 1.8s ease-in-out infinite 0.6s;display:inline-block;color:var(--hot);">✦</span>
         <span style="font-size:14px;animation:twinkle 3s ease-in-out infinite 0.9s;display:inline-block;color:var(--baby-mid);">✦</span>
-        <span style="font-size:20px;animation:twinkle 2.2s ease-in-out infinite 1.2s;display:inline-block;">✦</span>
+        <span style="font-size:20px;animation:twinkle 2.2s ease-in-out infinite 1.2s;display:inline-block;color:var(--hot);">✦</span>
       </div>
       <div style="width:36px;height:1px;background:var(--baby-mid);margin-bottom:1.5rem;"></div>
       <p style="font-family:sans-serif;font-size:14px;line-height:1.95;color:var(--muted);margin-bottom:1.1rem;">I am a digital marketer who genuinely loves what I do. I thrive on taking a company's vision and voice and bringing it to life in a way that connects with real people. Whether it is crafting the perfect campaign concept, jumping into a brainstorm with a team, or finding a creative solution to a challenge nobody has cracked yet, I show up ready and energized every single time.</p>
@@ -284,9 +259,8 @@
       <p>Outside the classroom, I create fitness, wellness, and lifestyle content on TikTok and Instagram under @memyselfandkristen, applying real platform strategy every time I post.</p>
       <div class="tags">
         <span class="tag">Meta Ads Manager</span><span class="tag">Google Analytics</span>
-        <span class="tag">SEO / SEM</span><span class="tag">Mailchimp</span>
-        <span class="tag">Hootsuite</span><span class="tag">CapCut</span>
-        <span class="tag">Canva</span><span class="tag">HubSpot</span>
+        <span class="tag">SEO / SEM</span><span class="tag">Mailchimp</span><span class="tag">Hootsuite</span>
+        <span class="tag">CapCut</span><span class="tag">Canva</span><span class="tag">HubSpot</span>
         <span class="tag">Asana</span><span class="tag">Bilingual (ES/EN)</span>
         <span class="tag">Microsoft Excel</span><span class="tag">Microsoft Word</span>
         <span class="tag">Microsoft Outlook</span><span class="tag">Google Workspace</span>
@@ -299,7 +273,7 @@
 </section>
 
 <!-- CERTIFICATIONS -->
-<div class="cert-strip" id="certs">
+<div class="cert-strip">
   <div class="cert-inner">
     <div class="sec-label">Certifications</div>
     <div class="cert-grid">
@@ -312,50 +286,99 @@
   </div>
 </div>
 
-<!-- FROZEN GARDEN CAMPAIGN -->
-<div class="campaign-bg" id="campaign">
-  <div class="campaign-inner">
-    <div class="sec-label">Featured Campaign Case Study</div>
-    <div class="campaign-kv">
-      <div class="kv-left">
-        <h2>Frozen Garden — New Target Market Campaign</h2>
-        <p>Bryant University Digital Marketing Competition, Spring 2026. As Team Lead, developed a comprehensive full-funnel digital strategy to identify and capture a new consumer segment beyond Frozen Garden's existing W30–55 and Mom audiences.</p>
+<!-- DIGITAL MARKETING CAMPAIGNS -->
+<div style="background:var(--surface);padding:5rem 3rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border);" id="campaigns">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="sec-label">Digital Marketing Campaigns</div>
+    <h2 class="sec-title">Campaign Work</h2>
+    <!-- FROZEN GARDEN -->
+    <div id="tab-frozen">
+      <div class="campaign-kv">
+        <div class="kv-left">
+          <h2>Frozen Garden — New Target Market Campaign</h2>
+          <p>Bryant University Digital Marketing Competition, Spring 2026. As Team Lead, developed a comprehensive full-funnel digital strategy to identify and capture a new consumer segment beyond Frozen Garden's existing W30–55 and Mom audiences.</p>
+        </div>
+        <div class="kv-badges">
+          <div class="kv-badge"><div class="b1">Budget</div><div class="b2">$250K</div></div>
+          <div class="kv-badge"><div class="b1">Timeline</div><div class="b2">12 mo</div></div>
+          <div class="kv-badge"><div class="b1">Role</div><div class="b2">Team Lead</div></div>
+        </div>
       </div>
-      <div class="kv-badges">
-        <div class="kv-badge"><div class="b1">Budget</div><div class="b2">$250K</div></div>
-        <div class="kv-badge"><div class="b1">Timeline</div><div class="b2">12 mo</div></div>
-        <div class="kv-badge"><div class="b1">Role</div><div class="b2">Team Lead</div></div>
+      <div class="campaign-cols">
+        <div class="c-block">
+          <h4>Brand Context — Key Metrics</h4>
+          <div class="metric-row">
+            <div class="metric"><div class="mn">$142</div><div class="md">Avg. order value</div></div>
+            <div class="metric"><div class="mn">$306</div><div class="md">Customer LTV</div></div>
+            <div class="metric"><div class="mn">40%</div><div class="md">Gross profit margin</div></div>
+          </div>
+          <h4>Projected Campaign Funnel</h4>
+          <div class="funnel-row"><div class="f-label">Awareness</div><div class="f-wrap"><div class="f-bar" style="width:100%"><span>Meta + Google reach</span></div></div></div>
+          <div class="funnel-row"><div class="f-label">Engagement</div><div class="f-wrap"><div class="f-bar" style="width:65%"><span>Social + Content</span></div></div></div>
+          <div class="funnel-row"><div class="f-label">Consideration</div><div class="f-wrap"><div class="f-bar" style="width:42%"><span>Influencer + Blog</span></div></div></div>
+          <div class="funnel-row"><div class="f-label">Conversion</div><div class="f-wrap"><div class="f-bar" style="width:22%"><span>Paid + Email</span></div></div></div>
+          <div class="funnel-row"><div class="f-label">Retention</div><div class="f-wrap"><div class="f-bar" style="width:14%"><span>Email automation</span></div></div></div>
+        </div>
+        <div class="c-block">
+          <h4>New Audience Identified</h4>
+          <div class="new-audience">
+            <h5>Fitness-Forward Adults 18–30</h5>
+            <p>Frozen Garden's existing market centers on W30–55 and convenience-seeking moms. Our team identified a high-growth opportunity in fitness-forward young adults, already aligned with Frozen Garden's clean-ingredient positioning and underserved by current campaigns.</p>
+          </div>
+          <p style="font-family:sans-serif;font-size:12px;color:var(--muted);line-height:1.75;margin-top:1rem;"><strong style="color:var(--text);font-weight:500;">Strategic differentiator:</strong> Proposed a micro-influencer seeding program pairing Frozen Garden with fitness creators, reducing paid CPM while building authentic credibility through organic UGC on TikTok.</p>
+        </div>
+      </div>
+      <div class="deliverables">
+        <div class="deliv"><h5>Market Research</h5><p>Persona development, consumer insights, competitive audit</p></div>
+        <div class="deliv"><h5>Owned Strategy</h5><p>Social calendar, email nurture series, website content</p></div>
+        <div class="deliv"><h5>Paid Strategy</h5><p>Meta Ads, Google Search, programmatic, video concepts</p></div>
+        <div class="deliv"><h5>KPI Framework</h5><p>CPM, CTR, ROAS, CAC — presented to industry judges</p></div>
       </div>
     </div>
-    <div class="campaign-cols">
-      <div class="c-block">
-        <h4>Brand Context — Key Metrics</h4>
-        <div class="metric-row">
-          <div class="metric"><div class="mn">$142</div><div class="md">Avg. order value</div></div>
-          <div class="metric"><div class="mn">$306</div><div class="md">Customer LTV</div></div>
-          <div class="metric"><div class="mn">40%</div><div class="md">Gross profit margin</div></div>
+
+    <!-- BRYANT -->
+    <div id="tab-bryant" style="margin-top:4rem;padding-top:4rem;border-top:1px solid var(--border);">
+      <div class="campaign-kv">
+        <div class="kv-left">
+          <h2>"From Prospect to Partner" — Bryant University Marketing Department</h2>
+          <p>Developed a full-funnel social media strategy to guide users from awareness through long-term alumni engagement across Instagram, TikTok, and LinkedIn. Built audience personas, weekly content system, KPI framework, and a $5,000 budget allocation.</p>
         </div>
-        <h4>Projected Campaign Funnel</h4>
-        <div class="funnel-row"><div class="f-label">Awareness</div><div class="f-wrap"><div class="f-bar" style="width:100%"><span>Meta + Google reach</span></div></div></div>
-        <div class="funnel-row"><div class="f-label">Engagement</div><div class="f-wrap"><div class="f-bar" style="width:65%"><span>Social + Content</span></div></div></div>
-        <div class="funnel-row"><div class="f-label">Consideration</div><div class="f-wrap"><div class="f-bar" style="width:42%"><span>Influencer + Blog</span></div></div></div>
-        <div class="funnel-row"><div class="f-label">Conversion</div><div class="f-wrap"><div class="f-bar" style="width:22%"><span>Paid + Email</span></div></div></div>
-        <div class="funnel-row"><div class="f-label">Retention</div><div class="f-wrap"><div class="f-bar" style="width:14%"><span>Email automation</span></div></div></div>
-      </div>
-      <div class="c-block">
-        <h4>New Audience Identified</h4>
-        <div class="new-audience">
-          <h5>Fitness-Forward Adults 18–30</h5>
-          <p>Frozen Garden's existing market centers on W30–55 and convenience-seeking moms. Our team identified a high-growth opportunity in fitness-forward young adults, already aligned with Frozen Garden's clean-ingredient, whole-food positioning, and underserved by current campaigns. Active on TikTok and Instagram, responsive to UGC and creator content.</p>
+        <div class="kv-badges">
+          <div class="kv-badge"><div class="b1">Budget</div><div class="b2">$5,000</div></div>
+          <div class="kv-badge"><div class="b1">Segments</div><div class="b2">3</div></div>
+          <div class="kv-badge"><div class="b1">Platforms</div><div class="b2">3</div></div>
         </div>
-        <p style="font-family:sans-serif;font-size:12px;color:var(--muted);line-height:1.75;margin-top:1rem;"><strong style="color:var(--text);font-weight:500;">Strategic differentiator:</strong> Proposed a micro-influencer seeding program pairing Frozen Garden with fitness creators, reducing paid CPM while building authentic credibility through organic UGC on TikTok.</p>
       </div>
-    </div>
-    <div class="deliverables">
-      <div class="deliv"><h5>Market Research</h5><p>Persona development, consumer insights, competitive audit</p></div>
-      <div class="deliv"><h5>Owned Strategy</h5><p>Social calendar, email nurture series, website content</p></div>
-      <div class="deliv"><h5>Paid Strategy</h5><p>Meta Ads, Google Search, programmatic, video concepts</p></div>
-      <div class="deliv"><h5>KPI Framework</h5><p>CPM, CTR, ROAS, CAC — presented to industry judges</p></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:2rem;">
+        <div style="border:1px solid var(--border);padding:1.25rem;background:var(--bg);">
+          <div style="font-family:sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--hot);margin-bottom:0.5rem;">Prospective Students</div>
+          <div style="font-size:22px;margin-bottom:0.25rem;">+25%</div>
+          <div style="font-family:sans-serif;font-size:12px;color:var(--muted);line-height:1.6;">Website engagement among high school-age prospects by end of fiscal year</div>
+          <div style="font-family:sans-serif;font-size:11px;color:var(--muted);margin-top:0.75rem;font-style:italic;">Platform: TikTok + Instagram Reels</div>
+        </div>
+        <div style="border:1px solid var(--border);padding:1.25rem;background:var(--bg);">
+          <div style="font-family:sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--hot);margin-bottom:0.5rem;">Current Students</div>
+          <div style="font-size:22px;margin-bottom:0.25rem;">+40%</div>
+          <div style="font-family:sans-serif;font-size:12px;color:var(--muted);line-height:1.6;">Social following growth + 30% increase in event attendance this academic year</div>
+          <div style="font-family:sans-serif;font-size:11px;color:var(--muted);margin-top:0.75rem;font-style:italic;">Platform: Instagram Stories + LinkedIn</div>
+        </div>
+        <div style="border:1px solid var(--border);padding:1.25rem;background:var(--bg);">
+          <div style="font-family:sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--hot);margin-bottom:0.5rem;">Alumni</div>
+          <div style="font-size:22px;margin-bottom:0.25rem;">+15%</div>
+          <div style="font-family:sans-serif;font-size:12px;color:var(--muted);line-height:1.6;">Mentorship + speaking participation + 5% YOY increase in scholarship donations</div>
+          <div style="font-family:sans-serif;font-size:11px;color:var(--muted);margin-top:0.75rem;font-style:italic;">Platform: LinkedIn</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:0.75rem;margin-bottom:2rem;">
+        <div style="border:1px solid var(--border);padding:1rem;background:var(--bg);"><div style="font-family:sans-serif;font-size:11px;font-weight:500;color:var(--hot);margin-bottom:0.5rem;">Sunday</div><div style="font-family:sans-serif;font-size:11px;color:var(--text);margin-bottom:0.25rem;">Stories / Polls / Event Updates</div><div style="font-family:sans-serif;font-size:10px;color:var(--muted);">Instagram · 10–11 AM</div></div>
+        <div style="border:1px solid var(--border);padding:1rem;background:var(--bg);"><div style="font-family:sans-serif;font-size:11px;font-weight:500;color:var(--hot);margin-bottom:0.5rem;">Monday</div><div style="font-family:sans-serif;font-size:11px;color:var(--text);margin-bottom:0.25rem;">Infographic — Personal Development</div><div style="font-family:sans-serif;font-size:10px;color:var(--muted);">Instagram + LinkedIn · 12 PM</div></div>
+        <div style="border:1px solid var(--border);padding:1rem;background:var(--bg);"><div style="font-family:sans-serif;font-size:11px;font-weight:500;color:var(--hot);margin-bottom:0.5rem;">Tuesday</div><div style="font-family:sans-serif;font-size:11px;color:var(--text);margin-bottom:0.25rem;">Stories — Day in the Life</div><div style="font-family:sans-serif;font-size:10px;color:var(--muted);">Instagram · 7–9 AM</div></div>
+        <div style="border:1px solid var(--border);padding:1rem;background:var(--bg);"><div style="font-family:sans-serif;font-size:11px;font-weight:500;color:var(--hot);margin-bottom:0.5rem;">Thursday</div><div style="font-family:sans-serif;font-size:11px;color:var(--text);margin-bottom:0.25rem;">Carousel — Alumni Spotlight</div><div style="font-family:sans-serif;font-size:10px;color:var(--muted);">LinkedIn + Instagram · 11 AM</div></div>
+        <div style="border:1px solid var(--border);padding:1rem;background:var(--bg);"><div style="font-family:sans-serif;font-size:11px;font-weight:500;color:var(--hot);margin-bottom:0.5rem;">Friday</div><div style="font-family:sans-serif;font-size:11px;color:var(--text);margin-bottom:0.25rem;">Short-Form Video — Career Tips</div><div style="font-family:sans-serif;font-size:10px;color:var(--muted);">Instagram + TikTok · 11 AM / 7 PM</div></div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+        <span class="chip" style="font-size:11px;padding:5px 12px;">Professional</span><span class="chip" style="font-size:11px;padding:5px 12px;">Innovative</span><span class="chip" style="font-size:11px;padding:5px 12px;">Academic</span><span class="chip" style="font-size:11px;padding:5px 12px;">Approachable</span><span class="chip" style="font-size:11px;padding:5px 12px;">Insight-driven</span><span class="chip" style="font-size:11px;padding:5px 12px;">Creative</span><span class="chip" style="font-size:11px;padding:5px 12px;">Fun and Interactive</span>
+      </div>
     </div>
   </div>
 </div>
@@ -367,50 +390,19 @@
   <div class="project">
     <div class="project-header" onclick="toggleProject('p1')">
       <div>
-        <div class="p-tag">Social Media Strategy · Bryant University</div>
-        <div class="p-title">Full-Funnel Social Media Strategy — Bryant University Marketing Department</div>
-        <div class="p-summary">Developed a comprehensive "Prospect to Partner" social media strategy guiding users from awareness through alumni engagement. Built audience personas, a platform-specific content system, KPI framework, and a $5,000 budget allocation across three audience lifecycle stages.</div>
-        <div class="chips"><span class="chip">Social Strategy</span><span class="chip">Funnel Design</span><span class="chip">Audience Segmentation</span><span class="chip">Content Systems</span><span class="chip">KPI Development</span><span class="chip">Budget Planning</span></div>
+        <div class="p-tag">Content Creation · TikTok &amp; Instagram</div>
+        <div class="p-title">Personal Brand Strategy — @memyselfandkristen</div>
+        <div class="p-summary">Since August 2023, independently planned, filmed, and edited fitness, wellness, and lifestyle content. Managed posting cadence, trend research, and algorithm optimization across TikTok and Instagram.</div>
+        <div class="chips"><span class="chip">CapCut</span><span class="chip">Content Strategy</span><span class="chip">Brand Voice</span><span class="chip">Algorithm Optimization</span><span class="chip">Trend Research</span></div>
       </div>
       <button class="toggle-btn" id="p1-btn">View Details ↓</button>
     </div>
     <div class="project-detail" id="p1">
       <div class="detail-grid">
         <div class="detail-col">
-          <h4>The Challenge</h4>
-          <p>Bryant's Marketing Department lacked a unified digital strategy to attract prospective students, consistently engage current students, and reconnect alumni for long-term value — events, mentorship, and donations — all within a single cohesive system.</p>
-          <h4 style="margin-top:1.25rem;">Strategy — GOST Framework</h4>
-          <ul><li>Built goals across awareness, engagement, and conversion stages</li><li>Target: 25% increase in website engagement, 40% social following growth</li><li>Defined 3 personas: prospective student, current student, alumni</li><li>Tailored content and messaging for each lifecycle stage</li></ul>
-        </div>
-        <div class="detail-col">
-          <h4>Content System</h4>
-          <ul><li>Student takeovers for authentic reach</li><li>Alumni spotlight carousels for social proof</li><li>Career tip infographics for value-driven engagement</li><li>Short-form video series for algorithm-friendly growth</li></ul>
-          <div class="kpi-row" style="margin-top:1rem;">
-            <div class="kpi"><div class="kn">+25%</div><div class="kd">Website engagement goal</div></div>
-            <div class="kpi"><div class="kn">+40%</div><div class="kd">Social following target</div></div>
-            <div class="kpi"><div class="kn">3</div><div class="kd">Audience segments built</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="project">
-    <div class="project-header" onclick="toggleProject('p2')">
-      <div>
-        <div class="p-tag">Content Creation · TikTok &amp; Instagram</div>
-        <div class="p-title">Personal Brand Strategy — @memyselfandkristen</div>
-        <div class="p-summary">Since August 2023, independently planned, filmed, and edited fitness, wellness, and lifestyle content. Managed posting cadence, trend research, and algorithm optimization across TikTok and Instagram.</div>
-        <div class="chips"><span class="chip">CapCut</span><span class="chip">Content Strategy</span><span class="chip">Brand Voice</span><span class="chip">Algorithm Optimization</span><span class="chip">Trend Research</span></div>
-      </div>
-      <button class="toggle-btn" id="p2-btn">View Details ↓</button>
-    </div>
-    <div class="project-detail" id="p2">
-      <div class="detail-grid">
-        <div class="detail-col">
           <h4>What This Demonstrates</h4>
           <p>Running a personal brand from scratch is a masterclass in digital marketing. Every post is a real test of content strategy, brand consistency, audience psychology, and platform algorithm knowledge with real data feedback, not simulated results.</p>
-          <ul style="margin-top:0.5rem;"><li>Maintained consistent brand voice and aesthetic across platforms</li><li>Monitored algorithm updates through webinars and industry training</li><li>Optimized posting cadence based on engagement data</li></ul>
+          <ul><li>Maintained consistent brand voice and aesthetic across platforms</li><li>Monitored algorithm updates through webinars and industry training</li><li>Optimized posting cadence based on engagement data</li></ul>
         </div>
         <div class="detail-col">
           <h4>Content Pillars</h4>
@@ -419,81 +411,32 @@
       </div>
     </div>
   </div>
-
   <div class="project">
-    <div class="project-header" onclick="toggleProject('p3')">
+    <div class="project-header" onclick="toggleProject('p2')">
       <div>
         <div class="p-tag">International Experience · Seville, Spain</div>
         <div class="p-title">Cross-Cultural Marketing Lens — Study Abroad, Spring 2025</div>
         <div class="p-summary">Completed a full semester at Universidad Pablo de Olavide with immersion in Spanish language, culture, and international business, bringing back a bilingual, cross-cultural marketing perspective.</div>
         <div class="chips"><span class="chip">Bilingual Marketing</span><span class="chip">International Business</span><span class="chip">Consumer Culture</span><span class="chip">Cross-Cultural Strategy</span></div>
       </div>
-      <button class="toggle-btn" id="p3-btn">View Details ↓</button>
+      <button class="toggle-btn" id="p2-btn">View Details ↓</button>
     </div>
-    <div class="project-detail" id="p3">
+    <div class="project-detail" id="p2">
       <div class="detail-grid">
         <div class="detail-col">
           <h4>Why This Matters for Marketing</h4>
-          <p>Spanish is the second most-spoken language in the United States, and bilingual marketers who understand cultural nuance are in high demand. My fluency is native-level, and my time in Seville deepened my understanding of how culture, values, and identity shape consumer behavior.</p>
+          <p>Spanish is the second most-spoken language in the United States, and bilingual marketers who understand cultural nuance are in high demand. My time in Seville deepened my understanding of how culture, values, and identity shape consumer behavior.</p>
         </div>
         <div class="detail-col">
           <h4>Practical Application</h4>
-          <p>I can develop, execute, and communicate marketing strategy in both English and Spanish — from ad copy and email campaigns to social content and client-facing presentations. This opens doors to U.S. Hispanic market strategy and international brand campaigns that most entry-level candidates simply cannot offer.</p>
+          <p>I can develop, execute, and communicate marketing strategy in both English and Spanish — from ad copy and email campaigns to social content and client-facing presentations. This opens doors to U.S. Hispanic market strategy that most entry-level candidates cannot offer.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- BRYANT UNIVERSITY -->
-<div style="background:var(--surface);padding:5rem 3rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border);" id="bryant">
-  <div style="max-width:1100px;margin:0 auto;">
-    <div class="sec-label">Campaign Showcase — Bryant University</div>
-    <div style="background:#e91e8c;padding:2.5rem;margin-bottom:2.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;">
-      <div>
-        <h2 style="font-size:26px;color:#fff;font-weight:normal;">"From Prospect to Partner" — Bryant University Marketing Department</h2>
-        <p style="font-family:sans-serif;font-size:13px;color:rgba(255,255,255,0.85);margin-top:0.5rem;max-width:500px;line-height:1.7;">Developed a full-funnel social media strategy to guide users from awareness through long-term alumni engagement across Instagram, TikTok, and LinkedIn. Built audience personas, a weekly content system, KPI framework, paid ad concepts, and a $5,000 budget allocation.</p>
-      </div>
-      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
-        <div class="kv-badge"><div class="b1">Budget</div><div class="b2">$5,000</div></div>
-        <div class="kv-badge"><div class="b1">Segments</div><div class="b2">3</div></div>
-        <div class="kv-badge"><div class="b1">Platforms</div><div class="b2">3</div></div>
-      </div>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:2rem;">
-      <div style="border:1px solid var(--border);padding:1.25rem;background:var(--surface);">
-        <div style="font-family:sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--hot);margin-bottom:0.5rem;">Prospective Students</div>
-        <div style="font-size:22px;margin-bottom:0.25rem;">+25%</div>
-        <div style="font-family:sans-serif;font-size:12px;color:var(--muted);line-height:1.6;">Website engagement among high school-age prospects by end of fiscal year</div>
-        <div style="font-family:sans-serif;font-size:11px;color:var(--muted);margin-top:0.75rem;font-style:italic;">Platform: TikTok + Instagram Reels</div>
-      </div>
-      <div style="border:1px solid var(--border);padding:1.25rem;background:var(--surface);">
-        <div style="font-family:sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--hot);margin-bottom:0.5rem;">Current Students</div>
-        <div style="font-size:22px;margin-bottom:0.25rem;">+40%</div>
-        <div style="font-family:sans-serif;font-size:12px;color:var(--muted);line-height:1.6;">Social following growth + 30% increase in event attendance this academic year</div>
-        <div style="font-family:sans-serif;font-size:11px;color:var(--muted);margin-top:0.75rem;font-style:italic;">Platform: Instagram Stories + LinkedIn</div>
-      </div>
-      <div style="border:1px solid var(--border);padding:1.25rem;background:var(--surface);">
-        <div style="font-family:sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--hot);margin-bottom:0.5rem;">Alumni</div>
-        <div style="font-size:22px;margin-bottom:0.25rem;">+15%</div>
-        <div style="font-family:sans-serif;font-size:12px;color:var(--muted);line-height:1.6;">Mentorship + speaking participation + 5% YOY increase in scholarship donations</div>
-        <div style="font-family:sans-serif;font-size:11px;color:var(--muted);margin-top:0.75rem;font-style:italic;">Platform: LinkedIn</div>
-      </div>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:0.75rem;margin-bottom:2rem;">
-      <div style="border:1px solid var(--border);padding:1rem;background:var(--surface);"><div style="font-family:sans-serif;font-size:11px;font-weight:500;color:var(--hot);margin-bottom:0.5rem;">Sunday</div><div style="font-family:sans-serif;font-size:11px;color:var(--text);margin-bottom:0.25rem;">Stories / Polls / Event Updates</div><div style="font-family:sans-serif;font-size:10px;color:var(--muted);">Instagram · 10–11 AM</div></div>
-      <div style="border:1px solid var(--border);padding:1rem;background:var(--surface);"><div style="font-family:sans-serif;font-size:11px;font-weight:500;color:var(--hot);margin-bottom:0.5rem;">Monday</div><div style="font-family:sans-serif;font-size:11px;color:var(--text);margin-bottom:0.25rem;">Infographic — Personal Development</div><div style="font-family:sans-serif;font-size:10px;color:var(--muted);">Instagram + LinkedIn · 12 PM</div></div>
-      <div style="border:1px solid var(--border);padding:1rem;background:var(--surface);"><div style="font-family:sans-serif;font-size:11px;font-weight:500;color:var(--hot);margin-bottom:0.5rem;">Tuesday</div><div style="font-family:sans-serif;font-size:11px;color:var(--text);margin-bottom:0.25rem;">Stories — Day in the Life</div><div style="font-family:sans-serif;font-size:10px;color:var(--muted);">Instagram · 7–9 AM</div></div>
-      <div style="border:1px solid var(--border);padding:1rem;background:var(--surface);"><div style="font-family:sans-serif;font-size:11px;font-weight:500;color:var(--hot);margin-bottom:0.5rem;">Thursday</div><div style="font-family:sans-serif;font-size:11px;color:var(--text);margin-bottom:0.25rem;">Carousel — Alumni Spotlight</div><div style="font-family:sans-serif;font-size:10px;color:var(--muted);">LinkedIn + Instagram · 11 AM</div></div>
-      <div style="border:1px solid var(--border);padding:1rem;background:var(--surface);"><div style="font-family:sans-serif;font-size:11px;font-weight:500;color:var(--hot);margin-bottom:0.5rem;">Friday</div><div style="font-family:sans-serif;font-size:11px;color:var(--text);margin-bottom:0.25rem;">Short-Form Video — Career Tips</div><div style="font-family:sans-serif;font-size:10px;color:var(--muted);">Instagram + TikTok · 11 AM / 7 PM</div></div>
-    </div>
-    <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
-      <span class="chip" style="font-size:11px;padding:5px 12px;">Professional</span><span class="chip" style="font-size:11px;padding:5px 12px;">Innovative</span><span class="chip" style="font-size:11px;padding:5px 12px;">Academic</span><span class="chip" style="font-size:11px;padding:5px 12px;">Approachable</span><span class="chip" style="font-size:11px;padding:5px 12px;">Insight-driven</span><span class="chip" style="font-size:11px;padding:5px 12px;">Creative</span><span class="chip" style="font-size:11px;padding:5px 12px;">Fun and Interactive</span>
-    </div>
-  </div>
-</div>
-
-<!-- PAID MEDIA SECTION -->
+<!-- PAID ADS -->
 <div style="background:var(--surface);padding:5rem 3rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border);" id="ads">
   <div style="max-width:1100px;margin:0 auto;">
     <div class="sec-label">Mock Paid Media Campaign</div>
@@ -502,151 +445,47 @@
       <div style="background:var(--hot);color:#fff;font-family:sans-serif;font-size:11px;padding:6px 14px;letter-spacing:0.06em;text-transform:uppercase;">Mock Campaign</div>
     </div>
     <p style="font-family:sans-serif;font-size:14px;color:var(--muted);line-height:1.8;max-width:700px;margin-bottom:1.5rem;">Developed a multi-channel paid media campaign for Ryze Mushroom Coffee targeting health-conscious young professionals seeking sustained energy without caffeine-related jitters or crashes. Original product photography was captured in Bryant University's Business Entrepreneurship and Leadership Center Digital Marketing Lab, creating clean, brand-aligned visuals used across all paid media assets.</p>
-
-    <!-- WHAT THIS DEMONSTRATES -->
     <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:0.75rem;margin-bottom:3rem;">
-      <div style="border:1px solid var(--border);padding:1rem;text-align:center;background:var(--bg);">
-        <div style="font-family:sans-serif;font-size:11px;color:var(--hot);margin-bottom:0.3rem;text-transform:uppercase;letter-spacing:0.07em;">Thinking</div>
-        <div style="font-family:sans-serif;font-size:11px;color:var(--muted);line-height:1.5;">Full-funnel awareness to intent capture</div>
-      </div>
-      <div style="border:1px solid var(--border);padding:1rem;text-align:center;background:var(--bg);">
-        <div style="font-family:sans-serif;font-size:11px;color:var(--hot);margin-bottom:0.3rem;text-transform:uppercase;letter-spacing:0.07em;">Integration</div>
-        <div style="font-family:sans-serif;font-size:11px;color:var(--muted);line-height:1.5;">Paid social + paid search working together</div>
-      </div>
-      <div style="border:1px solid var(--border);padding:1rem;text-align:center;background:var(--bg);">
-        <div style="font-family:sans-serif;font-size:11px;color:var(--hot);margin-bottom:0.3rem;text-transform:uppercase;letter-spacing:0.07em;">Production</div>
-        <div style="font-family:sans-serif;font-size:11px;color:var(--muted);line-height:1.5;">Original product photography shot in-house</div>
-      </div>
-      <div style="border:1px solid var(--border);padding:1rem;text-align:center;background:var(--bg);">
-        <div style="font-family:sans-serif;font-size:11px;color:var(--hot);margin-bottom:0.3rem;text-transform:uppercase;letter-spacing:0.07em;">Testing</div>
-        <div style="font-family:sans-serif;font-size:11px;color:var(--muted);line-height:1.5;">A/B CTA testing for performance optimization</div>
-      </div>
-      <div style="border:1px solid var(--border);padding:1rem;text-align:center;background:var(--bg);">
-        <div style="font-family:sans-serif;font-size:11px;color:var(--hot);margin-bottom:0.3rem;text-transform:uppercase;letter-spacing:0.07em;">Alignment</div>
-        <div style="font-family:sans-serif;font-size:11px;color:var(--muted);line-height:1.5;">Messaging, audience, and platform strategy unified</div>
-      </div>
+      <div style="border:1px solid var(--border);padding:1rem;text-align:center;background:var(--bg);"><div style="font-family:sans-serif;font-size:11px;color:var(--hot);margin-bottom:0.3rem;text-transform:uppercase;letter-spacing:0.07em;">Thinking</div><div style="font-family:sans-serif;font-size:11px;color:var(--muted);line-height:1.5;">Full-funnel awareness to intent capture</div></div>
+      <div style="border:1px solid var(--border);padding:1rem;text-align:center;background:var(--bg);"><div style="font-family:sans-serif;font-size:11px;color:var(--hot);margin-bottom:0.3rem;text-transform:uppercase;letter-spacing:0.07em;">Integration</div><div style="font-family:sans-serif;font-size:11px;color:var(--muted);line-height:1.5;">Paid social + paid search working together</div></div>
+      <div style="border:1px solid var(--border);padding:1rem;text-align:center;background:var(--bg);"><div style="font-family:sans-serif;font-size:11px;color:var(--hot);margin-bottom:0.3rem;text-transform:uppercase;letter-spacing:0.07em;">Production</div><div style="font-family:sans-serif;font-size:11px;color:var(--muted);line-height:1.5;">Original product photography shot in-house</div></div>
+      <div style="border:1px solid var(--border);padding:1rem;text-align:center;background:var(--bg);"><div style="font-family:sans-serif;font-size:11px;color:var(--hot);margin-bottom:0.3rem;text-transform:uppercase;letter-spacing:0.07em;">Testing</div><div style="font-family:sans-serif;font-size:11px;color:var(--muted);line-height:1.5;">A/B CTA testing for performance optimization</div></div>
+      <div style="border:1px solid var(--border);padding:1rem;text-align:center;background:var(--bg);"><div style="font-family:sans-serif;font-size:11px;color:var(--hot);margin-bottom:0.3rem;text-transform:uppercase;letter-spacing:0.07em;">Alignment</div><div style="font-family:sans-serif;font-size:11px;color:var(--muted);line-height:1.5;">Messaging, audience, and platform strategy unified</div></div>
     </div>
 
-    <!-- META ADS A/B -->
     <h4 style="font-family:sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--hot);margin-bottom:0.5rem;">Meta (Instagram / Facebook) — A/B Test</h4>
-    <p style="font-family:sans-serif;font-size:12px;color:var(--muted);margin-bottom:1.5rem;max-width:700px;line-height:1.75;">Built a Meta ad campaign positioning Ryze as a jitter-free coffee alternative for young professionals focused on productivity and wellness. Creative and copy used a problem-solution framework, addressing pain points like anxiety and energy crashes from traditional coffee. Structured A/B testing on CTA language evaluated impact on click-through and conversion performance.</p>
+    <p style="font-family:sans-serif;font-size:12px;color:var(--muted);margin-bottom:1.5rem;max-width:700px;line-height:1.75;">Built a Meta ad campaign positioning Ryze as a jitter-free coffee alternative for young professionals. Creative and copy used a problem-solution framework addressing pain points like anxiety and energy crashes. Structured A/B testing on CTA language evaluated impact on click-through and conversion performance.</p>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:3rem;">
       <div>
         <div style="font-family:sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.75rem;">Variant A — "Shop Now" · Bottom-of-funnel</div>
         <div style="background:#fff;border:1px solid var(--border);border-radius:8px;overflow:hidden;max-width:380px;margin:0 auto;">
-          <img src="https://i.ibb.co/jkYkWWC4/IMG-1359.png" style="width:100%;display:block;" alt="Meta Ad Variant A" />
+          <img src="https://i.ibb.co/jkYkWWC4/IMG-1359.png" style="width:100%;display:block;" alt="Meta Ad Variant A"/>
         </div>
-        <div style="background:var(--baby);padding:0.85rem 1rem;margin-top:0.75rem;">
-          <div style="font-family:sans-serif;font-size:12px;color:var(--text);line-height:1.6;">Direct purchase CTA targets high-intent users ready to convert. Best suited for retargeting audiences already familiar with the brand.</div>
-        </div>
+        <div style="background:var(--baby);padding:0.85rem 1rem;margin-top:0.75rem;"><div style="font-family:sans-serif;font-size:12px;color:var(--text);line-height:1.6;">Direct purchase CTA targets high-intent users ready to convert. Best suited for retargeting audiences already familiar with the brand.</div></div>
       </div>
       <div>
         <div style="font-family:sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.75rem;">Variant B — "Ryze &amp; Grind" · Top-of-funnel</div>
         <div style="background:#fff;border:1px solid var(--border);border-radius:8px;overflow:hidden;max-width:380px;margin:0 auto;">
-          <img src="https://i.ibb.co/Y7pRp37P/IMG-1360.png" style="width:100%;display:block;" alt="Meta Ad Variant B" />
+          <img src="https://i.ibb.co/Y7pRp37P/IMG-1360.png" style="width:100%;display:block;" alt="Meta Ad Variant B"/>
         </div>
-        <div style="background:var(--baby);padding:0.85rem 1rem;margin-top:0.75rem;">
-          <div style="font-family:sans-serif;font-size:12px;color:var(--text);line-height:1.6;">Brand-aligned lifestyle CTA builds identity resonance with new audiences. Designed to drive awareness and engagement before a purchase ask.</div>
-        </div>
+        <div style="background:var(--baby);padding:0.85rem 1rem;margin-top:0.75rem;"><div style="font-family:sans-serif;font-size:12px;color:var(--text);line-height:1.6;">Brand-aligned lifestyle CTA builds identity resonance with new audiences. Designed to drive awareness and engagement before a purchase ask.</div></div>
       </div>
     </div>
 
-    <!-- AUDIENCE TARGETING -->
-    <h4 style="font-family:sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--hot);margin-bottom:0.5rem;">Meta Ads Manager — Audience Targeting</h4>
-    <p style="font-family:sans-serif;font-size:12px;color:var(--muted);margin-bottom:1.5rem;max-width:700px;line-height:1.75;">Configured using Advantage+ audience targeting. Ages 20–36, all genders. Detailed interest targeting includes caffeine science, health and wellness, marketing, digital marketing, nutrition, college graduates, and business professionals. Estimated audience size: 170M–200M.</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:3rem;">
-      <div style="background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;max-width:340px;margin:0 auto;width:100%;">
-        <img src="https://i.ibb.co/Lz0F2x2j/o-1.jpg" style="width:100%;display:block;" alt="Meta Audience Targeting 1" />
-      </div>
-      <div style="background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;max-width:340px;margin:0 auto;width:100%;">
-        <img src="https://i.ibb.co/ynkHy3BH/o-1.jpg" style="width:100%;display:block;" alt="Meta Audience Targeting 2" />
-      </div>
-    </div>
-
-    <!-- GOOGLE ADS -->
     <h4 style="font-family:sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--hot);margin-bottom:0.5rem;">Google Search Ad</h4>
-    <p style="font-family:sans-serif;font-size:12px;color:var(--muted);margin-bottom:1.5rem;max-width:700px;line-height:1.75;">Developed Google Search ad mockups targeting high-intent users actively seeking alternatives to traditional coffee. Ad copy addresses key consumer pain points including jitters, crashes, and anxiety, while positioning Ryze as the solution for calm, sustained energy. Headline "Mushroom Coffee | Focus | No Jitters" is designed to match search intent and drive qualified clicks aligned with the campaign's core value proposition.</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+    <p style="font-family:sans-serif;font-size:12px;color:var(--muted);margin-bottom:1.5rem;max-width:700px;line-height:1.75;">Developed Google Search ad mockups targeting high-intent users actively seeking alternatives to traditional coffee. Ad copy addresses key consumer pain points while positioning Ryze as the solution for calm, sustained energy. Headline "Mushroom Coffee | Focus | No Jitters" is designed to match search intent and drive qualified clicks.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:3rem;">
       <div style="background:#fff;border:1px solid var(--border);border-radius:8px;overflow:hidden;">
-        <img src="https://i.ibb.co/Rk186Cbg/IMG-1370.png" style="width:100%;display:block;" alt="Google Search Ad" />
+        <img src="https://i.ibb.co/Rk186Cbg/IMG-1370.png" style="width:100%;display:block;" alt="Google Search Ad"/>
       </div>
       <div style="background:#fff;border:1px solid var(--border);border-radius:8px;overflow:hidden;">
-        <img src="https://i.ibb.co/m73Zrbf/IMG-1371.jpg" style="width:100%;display:block;" alt="Google Ad Detail" />
+        <img src="https://i.ibb.co/m73Zrbf/IMG-1371.jpg" style="width:100%;display:block;" alt="Google Ad Detail"/>
       </div>
     </div>
 
-    <!-- SUMMARY STATS -->
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2.5rem;">
-      <div style="border:1px solid var(--border);padding:1.25rem;text-align:center;background:var(--bg);">
-        <div style="font-family:sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.4rem;">Platform</div>
-        <div style="font-size:18px;color:var(--hot);">Meta + Google</div>
-      </div>
-      <div style="border:1px solid var(--border);padding:1.25rem;text-align:center;background:var(--bg);">
-        <div style="font-family:sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.4rem;">Ad Variants</div>
-        <div style="font-size:18px;color:var(--hot);">A/B Test</div>
-      </div>
-      <div style="border:1px solid var(--border);padding:1.25rem;text-align:center;background:var(--bg);">
-        <div style="font-family:sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.4rem;">Target Age</div>
-        <div style="font-size:18px;color:var(--hot);">20–36</div>
-      </div>
-      <div style="border:1px solid var(--border);padding:1.25rem;text-align:center;background:var(--bg);">
-        <div style="font-family:sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.4rem;">Est. Reach</div>
-        <div style="font-size:18px;color:var(--hot);">170–200M</div>
-      </div>
-    </div>
 
-    <!-- PRODUCT PHOTOGRAPHY -->
-    <div style="margin-top:3rem;padding-top:3rem;border-top:1px solid var(--border);">
-      <h4 style="font-family:sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--hot);margin-bottom:0.5rem;">Creative Production — Original Product Photography</h4>
-      <p style="font-family:sans-serif;font-size:12px;color:var(--muted);margin-bottom:1.5rem;max-width:700px;line-height:1.75;">All campaign visuals were captured using professional lightbox equipment in Bryant University's Business, Entrepreneurship and Leadership Center Digital Marketing Lab. Product styling, composition, and lighting were directed independently to create clean, brand-aligned assets for use across paid media placements.</p>
-      <div style="position:relative;overflow:hidden;" id="ryze-carousel">
-        <div id="ryze-track" style="display:flex;transition:transform 0.5s ease;">
-          <div style="min-width:100%;"><img src="https://i.ibb.co/RpkRfkCg/IMG-1337.jpg" style="width:100%;height:520px;object-fit:contain;background:#fafafa;display:block;" alt="Ryze flat lay"/></div>
-          <div style="min-width:100%;"><img src="https://i.ibb.co/VKsGvvF/IMG-1310.jpg" style="width:100%;height:520px;object-fit:contain;background:#fafafa;display:block;" alt="Ryze lineup"/></div>
-          <div style="min-width:100%;"><img src="https://i.ibb.co/nN66PXL1/IMG-1297.jpg" style="width:100%;height:520px;object-fit:contain;background:#fafafa;display:block;" alt="Ryze detail"/></div>
-          <div style="min-width:100%;"><img src="https://i.ibb.co/7JNdSGPF/IMG-1300.jpg" style="width:100%;height:520px;object-fit:contain;background:#fafafa;display:block;" alt="Ryze hero"/></div>
-        </div>
-        <button onclick="ryzeSlide(-1)" style="position:absolute;left:1rem;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.9);border:1px solid var(--border);width:40px;height:40px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;">&#8592;</button>
-        <button onclick="ryzeSlide(1)" style="position:absolute;right:1rem;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.9);border:1px solid var(--border);width:40px;height:40px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;">&#8594;</button>
-      </div>
-      <div style="display:flex;justify-content:center;gap:8px;margin-top:1.25rem;" id="ryze-dots">
-        <div onclick="ryzeGoTo(0)" style="width:8px;height:8px;border-radius:50%;background:var(--hot);cursor:pointer;" class="rdot"></div>
-        <div onclick="ryzeGoTo(1)" style="width:8px;height:8px;border-radius:50%;background:var(--baby-mid);cursor:pointer;" class="rdot"></div>
-        <div onclick="ryzeGoTo(2)" style="width:8px;height:8px;border-radius:50%;background:var(--baby-mid);cursor:pointer;" class="rdot"></div>
-        <div onclick="ryzeGoTo(3)" style="width:8px;height:8px;border-radius:50%;background:var(--baby-mid);cursor:pointer;" class="rdot"></div>
-      </div>
-      <p id="ryze-caption" style="font-family:sans-serif;font-size:12px;color:var(--muted);text-align:center;margin-top:0.75rem;font-style:italic;">Flat lay composition — Ryze Mushroom Coffee + Probiotic Creamer</p>
-    </div>
   </div>
 </div>
-
-<!-- RYZE PRODUCT PHOTOGRAPHY -->
-<section id="photography" style="padding:5rem 3rem;border-top:1px solid var(--border);">
-  <div style="max-width:1100px;margin:0 auto;">
-    <div class="sec-label">Product Photography</div>
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2rem;flex-wrap:wrap;gap:1rem;">
-      <h2 class="sec-title" style="margin-bottom:0;">Ryze Mushroom Coffee</h2>
-      <p style="font-family:sans-serif;font-size:12px;color:var(--muted);max-width:460px;line-height:1.75;text-align:right;">Shot in the Digital Marketing Lab at Bryant University's Business, Entrepreneurship and Leadership Center using professional lightbox equipment. Practiced product styling, composition, and visual storytelling for brand and e-commerce marketing.</p>
-    </div>
-    <div style="position:relative;overflow:hidden;" id="ryze-carousel">
-      <div id="ryze-track" style="display:flex;transition:transform 0.5s ease;">
-        <div style="min-width:100%;"><img src="https://i.ibb.co/RpkRfkCg/IMG-1337.jpg" style="width:100%;height:580px;object-fit:contain;background:#fafafa;display:block;" alt="Ryze flat lay"/></div>
-        <div style="min-width:100%;"><img src="https://i.ibb.co/VKsGvvF/IMG-1310.jpg" style="width:100%;height:580px;object-fit:contain;background:#fafafa;display:block;" alt="Ryze lineup"/></div>
-        <div style="min-width:100%;"><img src="https://i.ibb.co/nN66PXL1/IMG-1297.jpg" style="width:100%;height:580px;object-fit:contain;background:#fafafa;display:block;" alt="Ryze detail"/></div>
-        <div style="min-width:100%;"><img src="https://i.ibb.co/7JNdSGPF/IMG-1300.jpg" style="width:100%;height:580px;object-fit:contain;background:#fafafa;display:block;" alt="Ryze hero"/></div>
-      </div>
-      <button onclick="ryzeSlide(-1)" style="position:absolute;left:1rem;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.9);border:1px solid var(--border);width:40px;height:40px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;">&#8592;</button>
-      <button onclick="ryzeSlide(1)" style="position:absolute;right:1rem;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.9);border:1px solid var(--border);width:40px;height:40px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;">&#8594;</button>
-    </div>
-    <div style="display:flex;justify-content:center;gap:8px;margin-top:1.25rem;" id="ryze-dots">
-      <div onclick="ryzeGoTo(0)" style="width:8px;height:8px;border-radius:50%;background:var(--hot);cursor:pointer;" class="rdot"></div>
-      <div onclick="ryzeGoTo(1)" style="width:8px;height:8px;border-radius:50%;background:var(--baby-mid);cursor:pointer;" class="rdot"></div>
-      <div onclick="ryzeGoTo(2)" style="width:8px;height:8px;border-radius:50%;background:var(--baby-mid);cursor:pointer;" class="rdot"></div>
-      <div onclick="ryzeGoTo(3)" style="width:8px;height:8px;border-radius:50%;background:var(--baby-mid);cursor:pointer;" class="rdot"></div>
-    </div>
-    <p id="ryze-caption" style="font-family:sans-serif;font-size:12px;color:var(--muted);text-align:center;margin-top:0.75rem;font-style:italic;">Flat lay composition — Ryze Mushroom Coffee + Probiotic Creamer</p>
-  </div>
-</section>
 
 <!-- INSTAGRAM -->
 <div class="ig-section" id="instagram">
@@ -671,7 +510,7 @@
       <div data-behold-id="0UgQTGm2pFibVMBGD87q"></div>
       <script>(function(){const d=document,s=d.createElement("script");s.type="module";s.src="https://w.behold.so/widget.js";d.head.append(s);})();</script>
     </div>
-    <div class="ig-note" style="font-family:sans-serif;font-size:12px;color:var(--muted);text-align:center;margin-top:0.75rem;font-style:italic;">@memyselfandkristen · Fitness, Wellness &amp; Lifestyle</div>
+    <p style="font-family:sans-serif;font-size:12px;color:var(--muted);text-align:center;margin-top:0.75rem;font-style:italic;">@memyselfandkristen · Fitness, Wellness &amp; Lifestyle</p>
   </div>
 </div>
 
@@ -696,55 +535,33 @@
 <script>
   // STARS
   const starsContainer = document.getElementById('stars-bg');
-  const starChars = ['✦','✧','★','✩','✫','✬'];
-  const colors = ['#e91e8c','#f8bbd0','#fce4ec','#c2185b','#ff80ab','#f48fb1'];
-
-  // Fixed twinkling stars
+  const starChars = ['✦','✧','★','✩','✫'];
+  const colors = ['#e91e8c','#f8bbd0','#fce4ec','#c2185b','#ff80ab'];
   for(let i=0;i<25;i++){
-    const s = document.createElement('div');
-    s.className = 'fixed-star';
-    const char = starChars[Math.floor(Math.random()*starChars.length)];
-    const color = colors[Math.floor(Math.random()*colors.length)];
-    const size = Math.random()*18+8;
-    const dur = Math.random()*3+2;
-    const delay = Math.random()*4;
-    s.textContent = char;
-    s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;font-size:${size}px;color:${color};animation-duration:${dur}s;animation-delay:${delay}s;opacity:0.3;`;
+    const s=document.createElement('div');s.className='fixed-star';
+    s.textContent=starChars[Math.floor(Math.random()*starChars.length)];
+    s.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;font-size:${Math.random()*18+8}px;color:${colors[Math.floor(Math.random()*colors.length)]};animation-duration:${Math.random()*3+2}s;animation-delay:${Math.random()*4}s;opacity:0.3;`;
     starsContainer.appendChild(s);
   }
-
-  // Floating rising stars
   function spawnFloatStar(){
-    const s = document.createElement('div');
-    s.className = 'float-star';
-    const char = starChars[Math.floor(Math.random()*starChars.length)];
-    const color = colors[Math.floor(Math.random()*colors.length)];
-    const size = Math.random()*14+6;
-    const dur = Math.random()*8+6;
-    s.textContent = char;
-    s.style.cssText = `left:${Math.random()*100}%;bottom:-30px;font-size:${size}px;color:${color};animation-duration:${dur}s;opacity:0.6;`;
+    const s=document.createElement('div');s.className='float-star';
+    s.textContent=starChars[Math.floor(Math.random()*starChars.length)];
+    s.style.cssText=`left:${Math.random()*100}%;bottom:-30px;font-size:${Math.random()*14+6}px;color:${colors[Math.floor(Math.random()*colors.length)]};animation-duration:${Math.random()*8+6}s;opacity:0.6;`;
     starsContainer.appendChild(s);
-    setTimeout(()=>s.remove(), dur*1000);
+    setTimeout(()=>s.remove(),(Math.random()*8+6)*1000);
   }
-  setInterval(spawnFloatStar, 600);
+  setInterval(spawnFloatStar,600);
 
-  // SCROLL FADE IN
-  const observer = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
-  },{threshold:0.1});
-  document.querySelectorAll('section,.cert-strip,.campaign-bg,.ig-section,.project,.cert-card,.stat,.metric,.deliv,.kpi').forEach(el=>{
-    el.classList.add('fade-up');
-    observer.observe(el);
-  });
+  // SCROLL
+  const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
+  document.querySelectorAll('section,.cert-strip,.project,.cert-card,.stat,.metric,.deliv,.kpi').forEach(el=>{el.classList.add('fade-up');observer.observe(el);});
 
   // SMOOTH SCROLL
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
-    a.addEventListener('click',e=>{
-      e.preventDefault();
-      const t=document.querySelector(a.getAttribute('href'));
-      if(t)t.scrollIntoView({behavior:'smooth'});
-    });
+    a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'});});
   });
+
+
 
   // CAROUSEL
   let ryzeIdx=0;
@@ -759,8 +576,7 @@
 
   // PROJECT TOGGLE
   function toggleProject(id){
-    const detail=document.getElementById(id);
-    const btn=document.getElementById(id+'-btn');
+    const detail=document.getElementById(id);const btn=document.getElementById(id+'-btn');
     const isOpen=detail.classList.contains('open');
     document.querySelectorAll('.project-detail').forEach(d=>d.classList.remove('open'));
     document.querySelectorAll('.toggle-btn').forEach(b=>b.textContent='View Details ↓');
